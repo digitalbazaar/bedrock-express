@@ -22,5 +22,18 @@
   "bugs": {
     "url": "https://github.com/digitalbazaar/bedrock-express/issues"
   },
-  "homepage": "https://github.com/digitalbazaar/bedrock-express"
+  "homepage": "https://github.com/digitalbazaar/bedrock-express",
+  "dependencies": {
+    "async": "~0.9.0",
+    "cors": "~2.4.2",
+    "express": "~3.3.5"
+  },
+  "peerDependencies": {
+    "bedrock": "~0.3.0",
+    "bedrock-server": "~0.1.0"
+  },
+  "directories": {
+    "lib": "./lib"
+  },
+  "main": "./lib/express"
 }
