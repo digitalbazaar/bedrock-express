@@ -1,6 +1,6 @@
 {
   "name": "bedrock-express",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Bedrock express module",
   "main": "index.js",
   "scripts": {
@@ -30,7 +30,7 @@
   },
   "peerDependencies": {
     "bedrock": "~0.3.0",
-    "bedrock-server": "~0.0.1"
+    "bedrock-server": "~0.1.0"
   },
   "directories": {
     "lib": "./lib"
