@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+### Changed
+- Use cors 2.5.x.
+
 ## 0.2.0 - 2015-02-23
 
 ### Added
