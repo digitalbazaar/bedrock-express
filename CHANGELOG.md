@@ -1,6 +1,6 @@
 # bedrock-express ChangeLog
 
-## [Unreleased]
+## 0.2.0 - 2015-02-23
 
 ### Added
 - Exposed middleware that must act like singletons, but may be configured by
@@ -8,6 +8,7 @@ more than one module, via a `middleware` object with keys that match the
 middleware package name, eg: middleware['express-session'].
 
 ### Changed
+- **BREAKING**: Use express `4.x`.
 - **BREAKING**: `express` property is no longer exposed on the express
 application. To access this, require the `bedrock-express` module and use
 its API directly.
