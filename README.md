@@ -13,7 +13,15 @@ npm install bedrock-express
 ```
 
 ```js
-var brExpress = require('bedrock-express');
+var bedrock = require('bedrock');
+
+bedrock.events.on('bedrock-express.configure.routes', addRoutes);
+
+function addRoutes(app) {
+  app.get('/', function(req, res) {
+    res.send('Hello World!');
+  });
+}
 
 TODO
 ```
