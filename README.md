@@ -131,10 +131,9 @@ to express to provide, for example, a REST API.
     should have already completed any special custom behavior on start up.
 
 
-[cookie-parser]: https://github.com/expressjs/cookie-parser
 [bedrock]: https://github.com/digitalbazaar/bedrock
 [bedrock-server]: https://github.com/digitalbazaar/bedrock-server
-[express]: https://github.com/strongloop/express
 [cookie-parser]: https://github.com/expressjs/cookie-parser
+[express]: https://github.com/strongloop/express
 [morgan]: https://github.com/expressjs/morgan
 [session]: https://github.com/expressjs/session
