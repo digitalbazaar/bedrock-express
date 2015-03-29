@@ -26,7 +26,7 @@ function addRoutes(app) {
 
 ## Configuration
 
-For documentation on configuration, see [config.js](https://github.com/digitalbazaar/bedrock-express/blob/master/lib/config.js).
+For documentation on configuration, see [config.js](./lib/config.js).
 
 ## How It Works
 
