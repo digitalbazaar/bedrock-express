@@ -1,6 +1,6 @@
 {
   "name": "bedrock-express",
-  "version": "0.2.1-dev",
+  "version": "1.0.0",
   "description": "Bedrock express module",
   "main": "./lib/express",
   "scripts": {
@@ -36,8 +36,8 @@
     "morgan": "~1.5.1"
   },
   "peerDependencies": {
-    "bedrock": "~0.3.0",
-    "bedrock-server": "~0.1.0"
+    "bedrock": "^1.0.0",
+    "bedrock-server": "^1.0.0"
   },
   "directories": {
     "lib": "./lib"

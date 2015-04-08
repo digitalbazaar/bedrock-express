@@ -2,10 +2,12 @@
 
 ## [Unreleased]
 
+## [1.0.0] - 2015-04-08
+
 ### Changed
 - Use cors 2.5.x.
 
-## 0.2.0 - 2015-02-23
+## [0.2.0] - 2015-02-23
 
 ### Added
 - Exposed middleware that must act like singletons, but may be configured by
@@ -25,4 +27,6 @@ its API directly.
 - See git history for changes.
 
 
-[Unreleased]: https://github.com/digitalbazaar/bedrock-express/compare/0.1.0...HEAD
+[Unreleased]: https://github.com/digitalbazaar/bedrock-express/compare/1.0.0...HEAD
+[1.0.0]: https://github.com/digitalbazaar/bedrock-express/compare/0.2.0...1.0.0
+[0.2.0]: https://github.com/digitalbazaar/bedrock-express/compare/0.1.0...0.2.0
