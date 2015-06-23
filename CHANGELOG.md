@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [1.1.0] - 2015-06-23
+
 ### Added
 - Parse both `application/json` and `application/*+json` as JSON. This will
   cause content with the type `application/ld+json`, for example, to be
@@ -32,6 +34,7 @@ its API directly.
 - See git history for changes.
 
 
-[Unreleased]: https://github.com/digitalbazaar/bedrock-express/compare/1.0.0...HEAD
+[Unreleased]: https://github.com/digitalbazaar/bedrock-express/compare/1.1.0...HEAD
+[1.1.0]: https://github.com/digitalbazaar/bedrock-express/compare/1.0.0...1.1.0
 [1.0.0]: https://github.com/digitalbazaar/bedrock-express/compare/0.2.0...1.0.0
 [0.2.0]: https://github.com/digitalbazaar/bedrock-express/compare/0.1.0...0.2.0
