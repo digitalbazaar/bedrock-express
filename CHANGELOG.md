@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+### Added
+- Parse both `application/json` and `application/*+json` as JSON. This will
+  cause content with the type `application/ld+json`, for example, to be
+  auto parsed as expected.
+
 ## [1.0.0] - 2015-04-08
 
 ### Changed
