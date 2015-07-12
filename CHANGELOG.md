@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+## [1.1.1] - 2015-07-12
+
+### Fixed
+- Integrated `errorhandler` logging with bedrock logging system.
+
 ## [1.1.0] - 2015-06-23
 
 ### Added
@@ -34,7 +39,8 @@ its API directly.
 - See git history for changes.
 
 
-[Unreleased]: https://github.com/digitalbazaar/bedrock-express/compare/1.1.0...HEAD
+[Unreleased]: https://github.com/digitalbazaar/bedrock-express/compare/1.1.1...HEAD
+[1.1.1]: https://github.com/digitalbazaar/bedrock-express/compare/1.1.0...1.1.1
 [1.1.0]: https://github.com/digitalbazaar/bedrock-express/compare/1.0.0...1.1.0
 [1.0.0]: https://github.com/digitalbazaar/bedrock-express/compare/0.2.0...1.0.0
 [0.2.0]: https://github.com/digitalbazaar/bedrock-express/compare/0.1.0...0.2.0
