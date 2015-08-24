@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+## [1.2.0] - 2015-08-24
+
+### Changed
+- Do not parse `application/x-www-form-urlencoded` content by default. This
+  adds a minor bit of protection against CSRF attacks on handlers that are
+  expecting parsed JSON but may receive parsed urlencoded messages instead
+  that were triggered by a malicious website.
+
 ## [1.1.1] - 2015-07-12
 
 ### Fixed
