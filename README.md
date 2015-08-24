@@ -64,9 +64,12 @@ to express to provide, for example, a REST API.
     logging to bedrock's `access` logger.
 - **bedrock-express.configure.bodyParser**
   - Emitted before the default body parser is setup. By default, express
-    will parse `application/json` and `application/x-www-form-urlencoded`
-    message bodies into JavaScript objects. Listeners of this event can change
-    this behavior or turn it off by canceling this event.
+    will parse `application/json` message bodies into JavaScript objects. It
+    will not parse `application/x-www-form-urlencoded` as a minor attempt to
+    help prevent CSRF attacks on handlers that expect parsed JSON but may
+    receive parsed `application/x-www-form-urlencoded` messages instead.
+    Listeners of this event can change default parsing behavior or turn it off
+    by canceling this event.
 - **bedrock-express.configure.cookieParser**
   - Emitted before the default cookie parser is setup. Be default, the
     express middleware, [cookie-parser][], is used, configured using the
