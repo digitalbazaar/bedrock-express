@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+## [1.3.0] - 2015-08-25
+
+### Added
+- Add `acceptableContent` middleware.
+
 ## [1.2.0] - 2015-08-24
 
 ### Changed
@@ -47,7 +52,9 @@ its API directly.
 - See git history for changes.
 
 
-[Unreleased]: https://github.com/digitalbazaar/bedrock-express/compare/1.1.1...HEAD
+[Unreleased]: https://github.com/digitalbazaar/bedrock-express/compare/1.3.0...HEAD
+[1.3.0]: https://github.com/digitalbazaar/bedrock-express/compare/1.2.0...1.3.0
+[1.2.0]: https://github.com/digitalbazaar/bedrock-express/compare/1.1.1...1.2.0
 [1.1.1]: https://github.com/digitalbazaar/bedrock-express/compare/1.1.0...1.1.1
 [1.1.0]: https://github.com/digitalbazaar/bedrock-express/compare/1.0.0...1.1.0
 [1.0.0]: https://github.com/digitalbazaar/bedrock-express/compare/0.2.0...1.0.0
