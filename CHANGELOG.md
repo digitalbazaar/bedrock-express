@@ -2,6 +2,16 @@
 
 ## [Unreleased]
 
+## [1.4.0] - 2015-09-04
+
+### Added
+- Add `jsonErrorHandler` and `unhandledErrorHandler` middleware. Now, by
+  default, when a request prefers JSON or JSON-LD and an error occurs,
+  a handler will respond with a JSON/JSON-LD formatted error. This behavior
+  is also exposed as middleware that can be installed manually when overriding
+  the default behavior. The default unhandled error handler has also been
+  exposed as middleware so it can be installed manually.
+
 ## [1.3.0] - 2015-08-25
 
 ### Added
