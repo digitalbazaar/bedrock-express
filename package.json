@@ -1,6 +1,6 @@
 {
   "name": "bedrock-express",
-  "version": "2.0.1",
+  "version": "2.0.2-dev",
   "description": "Bedrock express module",
   "main": "./lib/express",
   "scripts": {
