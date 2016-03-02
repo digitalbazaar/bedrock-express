@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [2.0.1] - 2016-03-02
+
 ## [2.0.0] - 2016-03-02
 
 ### Changed
@@ -76,6 +78,7 @@ its API directly.
 
 
 [Unreleased]: https://github.com/digitalbazaar/bedrock-express/compare/1.4.1...HEAD
+[2.0.1]: https://github.com/digitalbazaar/bedrock-express/compare/2.0.0...2.0.1
 [2.0.0]: https://github.com/digitalbazaar/bedrock-express/compare/1.4.1...2.0.0
 [1.4.1]: https://github.com/digitalbazaar/bedrock-express/compare/1.4.0...1.4.1
 [1.4.0]: https://github.com/digitalbazaar/bedrock-express/compare/1.3.0...1.4.0
