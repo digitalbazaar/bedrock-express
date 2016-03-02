@@ -6,6 +6,10 @@ uses the [bedrock][] event system to emit a number of configuration
 events that dependent modules may use to add features to a core [express][]
 server.
 
+## Requirements
+
+- npm v3+
+
 ## Quick Examples
 
 ```
