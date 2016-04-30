@@ -48,6 +48,21 @@ events when the core `bedrock.start` event is emitted. When the `bedrock.ready`
 event is emitted, **bedrock-express** will attach the express server to
 the `bedrock-server` HTTPS server to begin accepting requests.
 
+By default, `bedrock-server` will only serve requests over HTTPS; if any
+HTTP requests arrive, they will be redirected to HTTPS. If you want to
+enable HTTP requests, do the following:
+
+```js
+var brServer = require('bedrock-server');
+var brExpress = require('bedrock-express');
+
+// track when bedrock is ready to attach express
+bedrock.events.on('bedrock.ready', function() {
+  // attach express app to regular http
+  brServer.servers.http.on('request', brExpress.app);
+});
+```
+
 ### Events
 
 **bedrock-express** emits several events that modules may listen for. Most of
