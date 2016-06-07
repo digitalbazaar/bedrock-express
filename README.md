@@ -158,4 +158,4 @@ to express to provide, for example, a REST API.
 [cookie-parser]: https://github.com/expressjs/cookie-parser
 [express]: https://github.com/strongloop/express
 [morgan]: https://github.com/expressjs/morgan
-[session]: https://github.com/expressjs/session
+[express-session]: https://github.com/expressjs/session
