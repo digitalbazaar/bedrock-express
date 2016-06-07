@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+## [2.0.3] - 2016-06-07
+
+### Changed
+- Move `bedrock-express.ready` into `bedrock.ready`.
+
 ## [2.0.2] - 2016-03-15
 
 ### Changed
@@ -82,7 +87,8 @@ its API directly.
 - See git history for changes.
 
 
-[Unreleased]: https://github.com/digitalbazaar/bedrock-express/compare/2.0.2...HEAD
+[Unreleased]: https://github.com/digitalbazaar/bedrock-express/compare/2.0.3...HEAD
+[2.0.3]: https://github.com/digitalbazaar/bedrock-express/compare/2.0.2...2.0.3
 [2.0.2]: https://github.com/digitalbazaar/bedrock-express/compare/2.0.1...2.0.2
 [2.0.1]: https://github.com/digitalbazaar/bedrock-express/compare/2.0.0...2.0.1
 [2.0.0]: https://github.com/digitalbazaar/bedrock-express/compare/1.4.1...2.0.0
