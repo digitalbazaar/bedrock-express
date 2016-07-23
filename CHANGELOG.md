@@ -1,5 +1,7 @@
 # bedrock-express ChangeLog
 
+## 2.0.5 - 2016-07-22
+
 ### Fixed
 - Set a default 404 status code if a file is not found on a static route.
 
