@@ -1,5 +1,8 @@
 # bedrock-express ChangeLog
 
+### Fixed
+- Ensure `bedrock-express.ready` can be canceled.
+
 ## 2.0.5 - 2016-07-22
 
 ### Fixed
