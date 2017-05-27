@@ -4,7 +4,9 @@
   "description": "Bedrock express module",
   "main": "./lib/express",
   "scripts": {
-    "test": "node test.js"
+    "test": "node test.js",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -33,7 +35,8 @@
     "express": "^4.12.0",
     "express-session": "^1.10.3",
     "method-override": "^2.3.1",
-    "morgan": "^1.5.1"
+    "morgan": "^1.5.1",
+    "snyk": "^1.31.0"
   },
   "peerDependencies": {
     "bedrock": "^1.0.0",
@@ -41,5 +44,6 @@
   },
   "directories": {
     "lib": "./lib"
-  }
+  },
+  "snyk": true
 }
