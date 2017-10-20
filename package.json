@@ -2,7 +2,7 @@
   "name": "bedrock-express",
   "version": "2.0.7-0",
   "description": "Bedrock express module",
-  "main": "./lib/express",
+  "main": "lib",
   "scripts": {
     "test": "node test.js"
   },
