@@ -1,5 +1,11 @@
 # bedrock-express ChangeLog
 
+## 2.0.7 - 2017-10-20
+
+### Fixed
+- Update `compression` dependency to address a security issue in underlying
+  `debug` -> `ms` dependencies.
+
 ## 2.0.6 - 2016-07-29
 
 ### Fixed
