@@ -1,5 +1,10 @@
 # bedrock-express ChangeLog
 
+## 2.1.0 - TBD
+
+### Added
+- `asyncHandler` API allows middleware to be composed using async/await.
+
 ## 2.0.8 - 2017-10-20
 
 ### Changed
