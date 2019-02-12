@@ -4,7 +4,8 @@
   "description": "Bedrock express module",
   "main": "lib",
   "scripts": {
-    "test": "node test.js"
+    "test": "node test.js",
+    "lint": "eslint \"lib/*.js\""
   },
   "repository": {
     "type": "git",
@@ -42,5 +43,9 @@
   },
   "directories": {
     "lib": "./lib"
+  },
+  "devDependencies": {
+    "eslint": "^5.13.0",
+    "eslint-config-digitalbazaar": "^1.5.0"
   }
 }
