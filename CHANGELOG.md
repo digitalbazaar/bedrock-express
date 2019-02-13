@@ -1,10 +1,13 @@
 # bedrock-express ChangeLog
 
+## 3.0.0 - 2019-02-xx
+
 ### Added
 - eslint support.
 
 ### Changed
-- Switch from async library to async/await.
+- **BREAKING**: Switch from async library to async/await. Requires a modern
+  runtime.
 
 ## 2.1.2 - 2019-10-03
 
