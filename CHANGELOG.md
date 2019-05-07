@@ -1,5 +1,11 @@
 # bedrock-express ChangeLog
 
+## 2.1.1 - 2019-05-07
+
+### Fixed
+- Attach express on `bedrock.start` instead of `bedrock.ready`. This addresses
+  a condition where express may not be attached before the server is ready.
+
 ## 2.1.0 - 2018-07-06
 
 ### Added
