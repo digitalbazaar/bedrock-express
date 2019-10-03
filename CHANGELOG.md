@@ -1,6 +1,6 @@
 # bedrock-express ChangeLog
 
-## 2.1.2 - 2019-10-xx
+## 2.1.2 - 2019-10-03
 
 ### Fixed
 - Fix cookie parser setup.
