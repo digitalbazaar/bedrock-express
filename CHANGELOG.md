@@ -4,10 +4,19 @@
 
 ### Added
 - eslint support.
+- **BREAKING**: No longer always logs full JSON errors for performance,
+  privacy, and denial of service reasons. Added
+  `bedrock.config.express.jsonErrorLevel` to control output. Defaults to
+  `'none'` when `process.env.NODE_ENV === 'production'`, otherwise `'summary'`.
+  - `'none'`: no logging
+  - `'summary'`: brief summary
+  - `'full'`: full JSON error as before
 
 ### Changed
 - **BREAKING**: Switch from async library to async/await. Requires a modern
   runtime.
+- **BREAKING**: `bedrock.config.express.dumpExceptions` now defaults to `false`
+  when `process.env.NODE_ENV === 'production'`, otherwise `true`.
 
 ## 2.1.2 - 2019-10-03
 
