@@ -1,6 +1,6 @@
 # bedrock-express ChangeLog
 
-## 3.0.0 - 2019-02-xx
+## 3.0.0 - 2019-11-08
 
 ### Added
 - eslint support.
