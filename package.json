@@ -37,14 +37,14 @@
     "morgan": "^1.9.1"
   },
   "peerDependencies": {
-    "bedrock": "^1.17.0",
+    "bedrock": "1.17.0 - 3.x",
     "bedrock-server": "^2.0.0"
   },
   "directories": {
     "lib": "./lib"
   },
   "devDependencies": {
-    "eslint": "^5.16.0",
+    "eslint": "^6.6.0",
     "eslint-config-digitalbazaar": "^2.0.1"
   },
   "engines": {
