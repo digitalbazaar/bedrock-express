@@ -1,5 +1,8 @@
 # bedrock-express ChangeLog
 
+### Fixed
+- Error handler signature.
+
 ## 3.0.0 - 2019-11-08
 
 ### Added
