@@ -1,5 +1,7 @@
 # bedrock-express ChangeLog
 
+## 3.1.0 - 2020-01-11
+
 ### Changed
 - By popular request, changing default error logging mode back to 'full'.
 
