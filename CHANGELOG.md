@@ -1,5 +1,11 @@
 # bedrock-express ChangeLog
 
+## 3.2.0 - 2020-06-04
+
+### Added
+- Config option for `httpOnly` that binds express to the HTTP server instead
+  of the HTTPS/TLS server.
+
 ## 3.1.0 - 2020-01-11
 
 ### Changed
