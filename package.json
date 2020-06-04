@@ -5,7 +5,7 @@
   "main": "lib",
   "scripts": {
     "test": "node test.js",
-    "lint": "eslint 'lib/*.js'"
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -44,8 +44,8 @@
     "lib": "./lib"
   },
   "devDependencies": {
-    "eslint": "^6.6.0",
-    "eslint-config-digitalbazaar": "^2.0.1"
+    "eslint": "^7.1.0",
+    "eslint-config-digitalbazaar": "^2.5.0"
   },
   "engines": {
     "node": ">=8"
