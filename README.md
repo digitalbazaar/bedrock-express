@@ -32,6 +32,12 @@ function addRoutes(app) {
 
 For documentation on configuration, see [config.js](./lib/config.js).
 
+`config.express.session.ttl` is a new option in version 3.3.0 that should be a number
+expressing in milliseconds how long a session should last.
+`config.express.session.ttl` defaults to 30 minutes in milliseconds.
+This option should be used by [`express-session storage implementations`](https://www.npmjs.com/package/express-session#session-store-implementation) that can access `bedrock-express` configuration options.
+[`bedrock-session-mongodb`](https://github.com/digitalbazaar/bedrock-session-mongodb/pull/12/files) can be used as an example.
+
 ## How It Works
 
 **bedrock-express** exposes an express server over TLS, using the
