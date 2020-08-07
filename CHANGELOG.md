@@ -1,5 +1,11 @@
 # bedrock-express ChangeLog
 
+## 3.3.0 -
+
+### Added
+- A new option config.express.session.ttl used by session storage libraries.
+- Updated the Configuration section of the README with ttl options
+
 ## 3.2.0 - 2020-06-04
 
 ### Added
