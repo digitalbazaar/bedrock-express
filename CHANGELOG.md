@@ -12,7 +12,7 @@
   has been added to `fastify`.
 - Expose `fastify` instance and `Fastify` class via module API.
 - A new option config.express.session.ttl used by session storage libraries.
-- Updated the Configuration section of the README with ttl options
+- Updated the Configuration section of the README with ttl options.
 
 ### Changed
 - Update underlying engine to use fastify with an express compatibility layer.
@@ -21,6 +21,9 @@
 - **BREAKING**: Change bedrock-server peer dependency to 3.x. This is not a hard
   requirement; bedrock-server 2.x should work with this change, however, a
   new major revision avoids having to support 2.x.
+- **BREAKING** `config.express.session.saveUninitialized` now defaults to false.
+  Unmodified sessions will no longer save to the database until data has been
+  added to the session.
 
 ### Removed
 - Removed broken/obsolete/unusable multiview hack to underlying express library.
