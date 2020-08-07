@@ -1,10 +1,13 @@
 # bedrock-express ChangeLog
 
-## 3.3.0 -
+## 4.0.0 -
 
 ### Added
 - A new option config.express.session.ttl used by session storage libraries.
-- Updated the Configuration section of the README with ttl options
+- Updated the Configuration section of the README with ttl options.
+
+### Changed
+- **BREAKING** config.express.session.saveUninitialized now defaults to false. Unmodified sessions will no longer save to the database until data has been added to the session. 
 
 ## 3.2.0 - 2020-06-04
 
