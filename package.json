@@ -37,7 +37,7 @@
     "morgan": "^1.9.1"
   },
   "peerDependencies": {
-    "bedrock": "1.17.0 - 3.x",
+    "bedrock": "1.17.0 - 4.x",
     "bedrock-server": "^2.0.0"
   },
   "directories": {
