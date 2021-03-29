@@ -1,6 +1,6 @@
 # bedrock-express ChangeLog
 
-## 3.2.1 - TBD
+## 3.2.1 - 2021-03-29
 
 ### Changed
 - Changed peerDependency for `bedrock` to allow `4.x`.
