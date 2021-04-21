@@ -1,6 +1,6 @@
 # bedrock-express ChangeLog
 
-## 4.0.0 - TBD
+## 4.0.0 - 2021-04-21
 
 ### Changed
 - **BREAKING**: Set default value for `jsonErrorLevel` to `'full'`. Deployments
