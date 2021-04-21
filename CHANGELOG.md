@@ -7,6 +7,10 @@
   that cannot afford the performance penalty may adjust this value on an as
   needed basis.
 - **BREAKING**: Set default value for `dumpExceptions` to `true`.
+- **BREAKING**: Set default value for `useSession` to `false`. If `useSession`
+  is set to `true`, ensure that a session storage module such as
+  `bedrock-session-mongodb` is used. Otherwise, the default Express in-memory
+  session store can cause memory leaks.
 
 ## 3.2.1 - 2021-03-29
 
