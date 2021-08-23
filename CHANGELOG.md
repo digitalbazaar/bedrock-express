@@ -2,10 +2,20 @@
 
 ## 4.1.0 - 2021-08-xx
 
+### Added
+- Add `bedrock-express.fastify.init` event to allow modules to listen to when
+  `fastify` has been initialized. No events are currently emitted for adding
+  routes/middleware/etc. to `fastify` as no pattern for this has been yet
+  determined. For now, the events for adding routes via express should
+  continue to be used.
+- Add `bedrock-express.fastify.ready` event when the express app is ready and
+  has been added to `fastify`.
+- Expose `fastify` instance and `Fastify` class via module API.
+
 ### Changed
 - Update underlying engine to use fastify with an express compatibility layer.
-  This approach allows node's native `http2` implementation to be used and
-  provides a pathway to upgrading to fastify and deprecating express.
+  This approach is intended to allow node's native `http2` implementation to be
+  used and provides a pathway to upgrading to fastify and deprecating express.
 
 ### Removed
 - Removed broken/obsolete/unusable multiview hack to underlying express library.
