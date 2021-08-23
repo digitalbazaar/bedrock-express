@@ -1,5 +1,12 @@
 # bedrock-express ChangeLog
 
+## 4.1.0 - 2021-08-xx
+
+### Changed
+- Update underlying engine to use fastify with an express compatibility layer.
+  This approach allows node's native `http2` implementation to be used and
+  provides a pathway to upgrading to fastify and deprecating express.
+
 ## 4.0.0 - 2021-04-21
 
 ### Changed
