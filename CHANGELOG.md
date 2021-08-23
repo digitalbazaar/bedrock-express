@@ -7,6 +7,9 @@
   This approach allows node's native `http2` implementation to be used and
   provides a pathway to upgrading to fastify and deprecating express.
 
+### Removed
+- Removed broken/obsolete/unusable multiview hack to underlying express library.
+
 ## 4.0.0 - 2021-04-21
 
 ### Changed
