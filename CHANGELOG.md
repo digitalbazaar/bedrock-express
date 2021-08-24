@@ -1,6 +1,6 @@
 # bedrock-express ChangeLog
 
-## 4.1.0 - 2021-08-xx
+## 5.0.0 - 2021-08-xx
 
 ### Added
 - Add `bedrock-express.fastify.init` event to allow modules to listen to when
@@ -16,6 +16,9 @@
 - Update underlying engine to use fastify with an express compatibility layer.
   This approach is intended to allow node's native `http2` implementation to be
   used and provides a pathway to upgrading to fastify and deprecating express.
+- **BREAKING**: Change bedrock-server peer dependency to 3.x. This is not a hard
+  requirement; bedrock-server 2.x should work with this change, however, a
+  new major revision avoids having to support 2.x.
 
 ### Removed
 - Removed broken/obsolete/unusable multiview hack to underlying express library.
