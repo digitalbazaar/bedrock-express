@@ -1,6 +1,6 @@
 # bedrock-express ChangeLog
 
-## 5.0.0 - 2021-08-xx
+## 5.0.0 - 2021-08-24
 
 ### Added
 - Add `bedrock-express.fastify.init` event to allow modules to listen to when
