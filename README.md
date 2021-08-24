@@ -32,12 +32,16 @@ function addRoutes(app) {
 
 For documentation on configuration, see [config.js](./lib/config.js).
 
-`config.express.session.ttl` is a new option in version 3.3.0 that should be a number
-expressing in milliseconds how long a session should last. This should be
-enforced by a session store on the server as opposed to the client.
+`config.express.session.ttl` is was added in version 5.0.0 that should be a
+number expressing in milliseconds how long a session should last. This can
+be enforced by a session store on the server as opposed to the client.
+
 `config.express.session.ttl` defaults to 30 minutes in milliseconds.
-This option should be used by [`express-session storage implementations`](https://www.npmjs.com/package/express-session#session-store-implementation) that can access `bedrock-express` configuration options.
-[`bedrock-session-mongodb`](https://github.com/digitalbazaar/bedrock-session-mongodb/pull/12/files) can be used as an example.
+
+This option should be used by [express-session storage implementations][]
+that can access `bedrock-express` configuration options.
+[`bedrock-session-mongodb`](https://github.com/digitalbazaar/bedrock-session-mongodb/pull/12/files)
+can be used as an example.
 
 ## How It Works
 
@@ -60,13 +64,13 @@ HTTP requests arrive, they will be redirected to HTTPS. If you want to
 enable HTTP requests, do the following:
 
 ```js
-var brServer = require('bedrock-server');
-var brExpress = require('bedrock-express');
+const brServer = require('bedrock-server');
+const brExpress = require('bedrock-express');
 
 // track when bedrock is ready to attach express
 bedrock.events.on('bedrock.ready', function() {
   // attach express app to regular http
-  brServer.servers.http.on('request', brExpress.app);
+  brServer.servers.http.on('request', brExpress.requestHandler);
 });
 ```
 
@@ -80,6 +84,15 @@ first parameter to the listener function. The most commonly used event is
 `bedrock-express.configure.routes`, which allows modules to attach new routes
 to express to provide, for example, a REST API.
 
+In version 5.0.0, a [fastify][] compatibility layer was added to add in the
+transition to [fastify][], which is a better maintained and more performant
+http server framework. Some new events were added related to fastify setup.
+
+- **bedrock-express.fastify.init**
+  - Emitted once fastify(-express) is ready and provides access to the
+    `fastify` instance; before any other setup of the express server.
+- **bedrock-express.init**
+  - Emitted before any other setup of the express server.
 - **bedrock-express.init**
   - Emitted before any other setup of the express server.
 - **bedrock-express.configure.logger**
@@ -158,7 +171,10 @@ to express to provide, for example, a REST API.
 - **bedrock-express.ready**
   - Emitted after `bedrock-express.start`, indicating that all listeners
     should have already completed any special custom behavior on start up.
-
+- **bedrock-express.fastify.ready**
+  - Emitted after `bedrock-express.ready` once the express app that was
+    assembled via all the previous events has been added to `fastify` so
+    that it can be served on `bedrock-server.ready`.
 
 [bedrock]: https://github.com/digitalbazaar/bedrock
 [bedrock-server]: https://github.com/digitalbazaar/bedrock-server
@@ -166,3 +182,5 @@ to express to provide, for example, a REST API.
 [express]: https://github.com/strongloop/express
 [morgan]: https://github.com/expressjs/morgan
 [express-session]: https://github.com/expressjs/session
+[express-session storage implementations]: https://www.npmjs.com/package/express-session#session-store-implementation
+[fastify]: https://github.com/fastify/fastify
