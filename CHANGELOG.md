@@ -1,5 +1,16 @@
 # bedrock-express ChangeLog
 
+## 5.0.1 - 2021-08-xx
+
+### Fixed
+- Fixed bug when http/1.1 is used. Outgoing messages would not be flushed
+  when using an augmented response object instead of one where the prototype
+  was set to express's response object (which is the default express behavior).
+  The previous version of the code attempted to avoid this prototype overriding
+  in all cases (http/2 and http/1.1), but only the http/2 version functions
+  properly. Until the root of the problem is sorted out with http/1.1, this
+  patch restores the prototype overriding method for http/1.1 requests.
+
 ## 5.0.0 - 2021-08-24
 
 ### Added
