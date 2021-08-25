@@ -1,6 +1,6 @@
 # bedrock-express ChangeLog
 
-## 5.0.1 - 2021-08-xx
+## 5.0.1 - 2021-08-25
 
 ### Fixed
 - Fixed bug when http/1.1 is used. Outgoing messages would not be flushed
