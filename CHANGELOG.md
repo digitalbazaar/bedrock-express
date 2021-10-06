@@ -1,5 +1,11 @@
 # bedrock-express ChangeLog
 
+## 6.0.0 - TBD
+
+### Changed
+- **BREAKING**: Set default value for `dumpExceptions` to `false`. This prevents
+  unwanted stack traces from being included with HTML error responses.
+
 ## 5.0.1 - 2021-08-25
 
 ### Fixed
