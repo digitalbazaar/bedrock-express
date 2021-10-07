@@ -1,6 +1,6 @@
 # bedrock-express ChangeLog
 
-## 6.0.0 - TBD
+## 6.0.0 - 2021-10-07
 
 ### Changed
 - **BREAKING**: Set default value for `dumpExceptions` to `false`. This prevents
