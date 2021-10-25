@@ -32,7 +32,7 @@
     "errorhandler": "^1.5.1",
     "express": "^4.17.1",
     "express-async-handler": "^1.1.3",
-    "express-session": "^1.17.0",
+    "express-session": "digitalbazaar/session#logging",
     "fastify": "^3.20.2",
     "fastify-express": "^0.3.3",
     "method-override": "^3.0.0",
