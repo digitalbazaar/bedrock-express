@@ -1,5 +1,10 @@
 # bedrock-express ChangeLog
 
+## 6.1.0 - TBD
+
+### Added
+- Add `fastifyOptions` to the Bedrock config.
+
 ## 6.0.0 - 2021-10-07
 
 ### Changed
@@ -38,9 +43,13 @@
 - **BREAKING**: Change bedrock-server peer dependency to 3.x. This is not a hard
   requirement; bedrock-server 2.x should work with this change, however, a
   new major revision avoids having to support 2.x.
-- **BREAKING** `config.express.session.saveUninitialized` now defaults to false.
-  Unmodified sessions will no longer save to the database until data has been
-  added to the session.
+- **BREAKING**: `config.express.session.saveUninitialized` now defaults to
+  false. Unmodified sessions will no longer save to the database until data has
+  been added to the session.
+- **BREAKING**: The Fastify `trustProxy` option is disabled by default. This
+  option is used when a Bedrock application is running with `httpOnly = true`
+  behind a load balancer that is doing TLS termination. The ability to enable
+  `trustProxy` was added in the v6.1 release.
 
 ### Removed
 - Removed broken/obsolete/unusable multiview hack to underlying express library.
