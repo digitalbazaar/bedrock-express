@@ -1,6 +1,6 @@
 # bedrock-express ChangeLog
 
-## 6.1.0 - TBD
+## 6.1.0 - 2021-10-26
 
 ### Added
 - Add `fastifyOptions` to the Bedrock config.
