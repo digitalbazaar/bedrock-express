@@ -1,5 +1,14 @@
 # bedrock-express ChangeLog
 
+## 6.2.0 - 2022-01-xx
+
+### Changed
+- Add automatic fix for calling `next` from an `asyncHandler`. In previous
+  versions `process.nextTick(next)` was required to safely call a subsequent
+  middleware from a middleware created with `asyncHandler`. It is still
+  safe to keep doing that, however, now it is also safe to just call `next()`
+  normally because this behavior is built into the `asyncHandler` helper.
+
 ## 6.1.0 - 2021-10-26
 
 ### Added
