@@ -1,6 +1,6 @@
 # bedrock-express ChangeLog
 
-## 6.2.0 - 2022-01-xx
+## 6.2.0 - 2022-01-11
 
 ### Changed
 - Add automatic fix for calling `next` from an `asyncHandler`. In previous
