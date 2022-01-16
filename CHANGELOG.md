@@ -1,5 +1,33 @@
 # bedrock-express ChangeLog
 
+## 6.2.1 - 2022-01-xx
+
+### Fixed
+- Add patch to ensure current CORS behavior continues for bedrock-express
+  servers running on localhost. This is mostly for development purposes,
+  but does apply to any bedrock-express server that actually does run
+  in production on localhost. A new CORS security feature has been added
+  to Chrome to stop cross-origin requests from being made to private
+  networks (without specific permission via a new CORS header). The
+  header is:
+
+  `Access-control-allow-private-network: true`
+
+  This change enables sending that header on every response -- if the
+  bedrock server's host is configured such that the string `localhost`
+  appears in its value. This alone will not enable CORS on an endpoint,
+  the `Access-control-allow-origin` header must also be set. This
+  header is only set if the `cors` middleware has been used (or some
+  other means has been used) on a specific route. Therefore, this change
+  should not expose any routes that were not previously exposed via
+  CORS headers, rather, it should only enable any routes that were
+  previously exposed to continue to be hit just like before, provided
+  that they are running on localhost. If the server runs on some other
+  private network, the new version of Chrome will not allow them to be
+  accessed even if the other CORS headers have been set, because this
+  patch will not set the new header in that case. If this feature needs
+  to be disabled, set `bedrock.config.express.allowLocalhostCors=false`.
+
 ## 6.2.0 - 2022-01-11
 
 ### Changed
