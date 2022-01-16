@@ -1,6 +1,6 @@
 # bedrock-express ChangeLog
 
-## 6.2.1 - 2022-01-xx
+## 6.2.1 - 2022-01-16
 
 ### Fixed
 - Add patch to ensure current CORS behavior continues for bedrock-express
