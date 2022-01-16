@@ -6,17 +6,18 @@
 - Add patch to ensure current CORS behavior continues for bedrock-express
   servers running on localhost. This is mostly for development purposes,
   but does apply to any bedrock-express server that actually does run
-  in production on localhost. A new CORS security feature has been added
-  to Chrome to stop cross-origin requests from being made to private
-  networks (without specific permission via a new CORS header). The
-  header is:
+  in production on localhost. The new [Private Network
+  Access](https://wicg.github.io/private-network-access/) CORS security
+  feature has been added to Chrome to stop cross-origin requests from
+  being made to private networks (without specific permission via a new
+  CORS header). The header is:
 
-  `Access-control-allow-private-network: true`
+  `Access-Control-Allow-Private-Network: true`
 
   This change enables sending that header on every response -- if the
   bedrock server's host is configured such that the string `localhost`
   appears in its value. This alone will not enable CORS on an endpoint,
-  the `Access-control-allow-origin` header must also be set. This
+  the `Access-Control-Allow-Origin` header must also be set. This
   header is only set if the `cors` middleware has been used (or some
   other means has been used) on a specific route. Therefore, this change
   should not expose any routes that were not previously exposed via
