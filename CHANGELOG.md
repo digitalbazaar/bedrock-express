@@ -1,6 +1,6 @@
 # bedrock-express ChangeLog
 
-## 6.2.2 - 2022-xx-xx
+## 6.2.2 - 2022-01-16
 
 ### Fixed
 - Only set Private Network Access header on preflight request.
