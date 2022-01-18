@@ -52,7 +52,7 @@ describe('httpClientHandler', () => {
     err.status.should.equal(403);
     err.message.should.equal('Permission denied.');
   });
-  it('should handle "NotFoundError" error properly', async () => {
+  it('should handle "NotFound" error properly', async () => {
     let res;
     let err;
     try {
@@ -79,46 +79,44 @@ describe('httpClientHandler', () => {
     should.exist(err);
     err.status.should.equal(500);
   });
-  it('should handle "text/html" accept header',
-    async () => {
-      let res;
-      let err;
-      try {
-        res = await httpClient.get(`${BASE_URL}/unhandled-error`, {
-          agent,
-          headers: {
-            Accept: 'text/html'
-          }
-        });
-      } catch(e) {
-        err = e;
-      }
-      should.not.exist(res);
-      should.exist(err);
-      err.status.should.equal(404);
-      err.message.should.equal('Not Found');
-      err.response.headers.get('content-type')
-        .should.equal('text/plain');
-    });
-  it('should serve a static file property with file and cors',
-    async () => {
-      let res;
-      let err;
-      try {
-        res = await httpClient.get(`${BASE_URL}/static/foo`, {
-          agent,
-        });
-      } catch(e) {
-        err = e;
-      }
-      should.exist(res);
-      should.not.exist(err);
-      res.status.should.equal(200);
-      const body = await res.text();
-      const filepath = path.join(__dirname, '..', 'static', 'foo.html');
-      const content = await readFile(filepath, 'utf-8');
-      body.should.equal(content);
-    });
+  it('should handle "text/html" accept header', async () => {
+    let res;
+    let err;
+    try {
+      res = await httpClient.get(`${BASE_URL}/unhandled-error`, {
+        agent,
+        headers: {
+          Accept: 'text/html'
+        }
+      });
+    } catch(e) {
+      err = e;
+    }
+    should.not.exist(res);
+    should.exist(err);
+    err.status.should.equal(404);
+    err.message.should.equal('Not Found');
+    err.response.headers.get('content-type')
+      .should.equal('text/plain');
+  });
+  it('should serve a static file property with file and cors', async () => {
+    let res;
+    let err;
+    try {
+      res = await httpClient.get(`${BASE_URL}/static/foo`, {
+        agent,
+      });
+    } catch(e) {
+      err = e;
+    }
+    should.exist(res);
+    should.not.exist(err);
+    res.status.should.equal(200);
+    const body = await res.text();
+    const filepath = path.join(__dirname, '..', 'static', 'foo.html');
+    const content = await readFile(filepath, 'utf-8');
+    body.should.equal(content);
+  });
 
   it('should serve a static files in a directory with given paths',
     async () => {
@@ -160,39 +158,37 @@ describe('httpClientHandler', () => {
       body.should.equal(content);
     });
 
-  it('should return 404 if static file is not found',
-    async () => {
-      let res;
-      let err;
-      try {
-        res = await httpClient.get(`${BASE_URL}/baz.html`, {
-          agent,
-        });
-      } catch(e) {
-        err = e;
-      }
-      should.not.exist(res);
-      should.exist(err);
-      err.status.should.equal(404);
-      err.message.should.equal('Route GET:/baz.html not found');
-    });
+  it('should return 404 if static file is not found', async () => {
+    let res;
+    let err;
+    try {
+      res = await httpClient.get(`${BASE_URL}/baz.html`, {
+        agent,
+      });
+    } catch(e) {
+      err = e;
+    }
+    should.not.exist(res);
+    should.exist(err);
+    err.status.should.equal(404);
+    err.message.should.equal('Route GET:/baz.html not found');
+  });
 
-  it('should return 404 if non root static file is not found ',
-    async () => {
-      let res;
-      let err;
-      try {
-        res = await httpClient.get(`${BASE_URL}/static/baz.html`, {
-          agent,
-        });
-      } catch(e) {
-        err = e;
-      }
-      should.not.exist(res);
-      should.exist(err);
-      err.status.should.equal(404);
-      err.message.should.equal('Route GET:/static/baz.html not found');
-    });
+  it('should return 404 if non root static file is not found ', async () => {
+    let res;
+    let err;
+    try {
+      res = await httpClient.get(`${BASE_URL}/static/baz.html`, {
+        agent,
+      });
+    } catch(e) {
+      err = e;
+    }
+    should.not.exist(res);
+    should.exist(err);
+    err.status.should.equal(404);
+    err.message.should.equal('Route GET:/static/baz.html not found');
+  });
   it('should respond with success if content type is acceptable when ' +
     'passing multiple arguments to acceptableContent', async () => {
     let res;
