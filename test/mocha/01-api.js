@@ -10,9 +10,9 @@ const path = require('path');
 
 const {readFile} = fs.promises;
 
-describe('httpClientHandler', () => {
+describe('configured routes', () => {
   const BASE_URL = `https://localhost:18443`;
-  it('configured route should work properly', async () => {
+  it('should return 200 status code', async () => {
     let res;
     let err;
     try {
@@ -25,20 +25,7 @@ describe('httpClientHandler', () => {
     res.status.should.equal(200);
     res.data.success.should.equal(true);
   });
-  it('should handle error properly', async () => {
-    let res;
-    let err;
-    try {
-      res = await httpClient.get(`${BASE_URL}/unknown-error`, {agent});
-    } catch(e) {
-      err = e;
-    }
-    should.not.exist(res);
-    should.exist(err);
-    err.status.should.equal(400);
-    err.message.should.equal('An unknown error occurred.');
-  });
-  it('should handle "PermissionDenied" error properly', async () => {
+  it('should return 403 status code', async () => {
     let res;
     let err;
     try {
@@ -52,7 +39,7 @@ describe('httpClientHandler', () => {
     err.status.should.equal(403);
     err.message.should.equal('Permission denied.');
   });
-  it('should handle "NotFound" error properly', async () => {
+  it('should return 404 status code', async () => {
     let res;
     let err;
     try {
@@ -67,7 +54,7 @@ describe('httpClientHandler', () => {
     err.response.headers.get('content-type')
       .should.equal('application/json; charset=utf-8');
   });
-  it('should handle non-bedrock error properly', async () => {
+  it('should return 500 status code', async () => {
     let res;
     let err;
     try {

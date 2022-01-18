@@ -40,16 +40,10 @@ bedrock.events.on('bedrock-express.configure.routes', app => {
     res.json({success: true});
   }));
   // eslint-disable-next-line no-unused-vars
-  app.get('/unknown-error', asyncHandler(async (req, res) => {
-    throw new BedrockError('An unknown error occurred.', 'UnknownError', {
-      httpStatusCode: 400,
-      public: true,
-    });
-  }));
-  // eslint-disable-next-line no-unused-vars
   app.get('/permission-denied-error', asyncHandler(async (req, res) => {
     throw new BedrockError('Permission denied.', 'PermissionDenied', {
       public: true,
+      httpStatusCode: 403,
     });
   }));
   // eslint-disable-next-line no-unused-vars
