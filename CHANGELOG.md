@@ -1,5 +1,10 @@
 # bedrock-express ChangeLog
 
+## 6.3.0 - 2022-TBD
+
+### Added
+- Add tests and expose private test helper functions in API.
+
 ## 6.2.2 - 2022-01-16
 
 ### Fixed
