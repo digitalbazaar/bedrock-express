@@ -4,10 +4,11 @@
 'use strict';
 
 const {agent} = require('bedrock-https-agent');
-const {httpClient} = require('@digitalbazaar/http-client');
 const fs = require('fs');
-const {readFile} = fs.promises;
+const {httpClient} = require('@digitalbazaar/http-client');
 const path = require('path');
+
+const {readFile} = fs.promises;
 
 describe('httpClientHandler', () => {
   const BASE_URL = `https://localhost:18443`;
