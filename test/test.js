@@ -18,14 +18,14 @@ bedrock.events.on('bedrock-express.configure.static', () => {
     cors: true,
   });
   bedrock.config.express.static.push({
-    route: '/static/',
+    route: '/static',
     path: path.join(__dirname, 'static'),
     cors: {
       exposedHeaders: ['Date', 'Location', 'Content-Length']
     },
   });
   bedrock.config.express.static.push({
-    route: '/static/',
+    route: '/static',
     path: path.join(__dirname, 'static', 'baz.html'),
     cors: {
       exposedHeaders: ['Date', 'Location', 'Content-Length']
