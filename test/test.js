@@ -64,7 +64,7 @@ bedrock.events.on('bedrock-express.configure.routes', app => {
   }));
   // eslint-disable-next-line no-unused-vars
   app.get('/unhandled-error', asyncHandler(async (req, res) => {
-    const err = new BedrockError('Not Found.', 'NotFound...', {
+    const err = new BedrockError('Not Found.', 'NotFound', {
       public: true,
     });
     err.status = 404;

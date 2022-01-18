@@ -7,6 +7,7 @@ const {fastify, _setFastify} = require('bedrock-express');
 
 describe('fastify', () => {
   before(() => {
+    // Set fastify to null
     _setFastify({fastify: null});
   });
   it('should throw error if fastify is null when getting prototype', () => {
