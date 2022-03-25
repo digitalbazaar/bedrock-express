@@ -40,7 +40,7 @@
   },
   "peerDependencies": {
     "bedrock": "^4.5.0",
-    "bedrock-server": "^3.2.0"
+    "bedrock-server": "^3.2.1"
   },
   "directories": {
     "lib": "./lib"
