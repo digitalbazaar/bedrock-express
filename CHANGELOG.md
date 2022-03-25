@@ -1,5 +1,10 @@
 # bedrock-express ChangeLog
 
+## 6.4.1 - 2022-03-xx
+
+### Fixed
+- Fix remaining non-ESM internals.
+
 ## 6.4.0 - 2022-03-24
 
 ### Changed
