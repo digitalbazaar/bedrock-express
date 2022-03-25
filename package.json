@@ -39,8 +39,8 @@
     "morgan": "^1.9.1"
   },
   "peerDependencies": {
-    "bedrock": "^4.0.0",
-    "bedrock-server": "^3.0.0"
+    "bedrock": "^4.5.0",
+    "bedrock-server": "^3.2.0"
   },
   "directories": {
     "lib": "./lib"
