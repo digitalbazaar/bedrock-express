@@ -12,8 +12,8 @@
     "@digitalbazaar/http-client": "^2.0.1",
     "bedrock": "^4.5.0",
     "bedrock-express": "file:..",
-    "bedrock-https-agent": "^2.1.0",
-    "bedrock-server": "^3.2.0",
+    "bedrock-https-agent": "^2.3.0",
+    "bedrock-server": "^3.2.1",
     "bedrock-test": "^6.0.0",
     "cross-env": "^7.0.2",
     "nyc": "^15.1.0"
