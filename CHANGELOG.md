@@ -1,6 +1,6 @@
 # bedrock-express ChangeLog
 
-## 6.4.0 - 2022-03-xx
+## 6.4.0 - 2022-03-24
 
 ### Changed
 - Update peer deps:
