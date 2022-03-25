@@ -1,5 +1,14 @@
 # bedrock-express ChangeLog
 
+## 6.4.0 - 2022-03-xx
+
+### Changed
+- Update peer deps:
+  - `bedrock@4.5`
+  - `bedrock-server@3.2`.
+- Update internals to use esm style and use `esm.js` to
+  transpile to CommonJS.
+
 ## 6.3.0 - 2022-01-21
 
 ### Added
