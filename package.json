@@ -1,6 +1,6 @@
 {
   "name": "@bedrock/express",
-  "version": "7.0.0",
+  "version": "7.0.1-0",
   "type": "module",
   "description": "Bedrock express module",
   "main": "./lib/index.js",
