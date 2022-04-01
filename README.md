@@ -17,7 +17,7 @@ npm install @bedrock/express
 ```
 
 ```js
-var bedrock = require('bedrock');
+import * as bedrock from '@bedrock/core';
 
 bedrock.events.on('bedrock-express.configure.routes', addRoutes);
 
