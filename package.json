@@ -1,8 +1,9 @@
 {
-  "name": "bedrock-express",
+  "name": "@bedrock/express",
   "version": "6.4.2-0",
+  "type": "module",
   "description": "Bedrock express module",
-  "main": "lib",
+  "main": "./lib/index.js",
   "scripts": {
     "test": "node test.js",
     "lint": "eslint ."
@@ -30,7 +31,6 @@
     "cookie-parser": "^1.4.4",
     "cors": "^2.7.1",
     "errorhandler": "^1.5.1",
-    "esm": "^3.2.25",
     "express": "^4.17.1",
     "express-session": "^1.17.0",
     "fastify": "^3.20.2",
@@ -39,8 +39,8 @@
     "morgan": "^1.9.1"
   },
   "peerDependencies": {
-    "bedrock": "^4.5.0",
-    "bedrock-server": "^3.2.1"
+    "@bedrock": "^5.0.0",
+    "@bedrock/server": "^4.0.0"
   },
   "directories": {
     "lib": "./lib"
@@ -52,6 +52,6 @@
     "jsdoc-to-markdown": "^6.0.1"
   },
   "engines": {
-    "node": ">=10"
+    "node": ">=14"
   }
 }

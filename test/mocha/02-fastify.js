@@ -1,9 +1,7 @@
 /*!
  * Copyright (c) 2022 Digital Bazaar, Inc. All rights reserved.
  */
-'use strict';
-
-const {fastify, _setFastify} = require('bedrock-express');
+import {fastify, _setFastify} from '@bedrock/express';
 
 describe('fastify', () => {
   before(() => {
