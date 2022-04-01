@@ -2,11 +2,15 @@
  * Copyright (c) 2022 Digital Bazaar, Inc. All rights reserved.
  */
 import {agent} from '@bedrock/https-agent';
+import {createRequire} from 'module';
+import {fileURLToPath} from 'url';
 import fs from 'fs';
-import {httpClient} from '@digitalbazaar/http-client';
 import path from 'path';
+const require = createRequire(import.meta.url);
+const {httpClient} = require('@digitalbazaar/http-client');
 
 const {readFile} = fs.promises;
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 describe('configured routes', () => {
   const BASE_URL = `https://localhost:18443`;
