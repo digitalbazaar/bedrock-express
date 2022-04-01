@@ -8,12 +8,12 @@ server.
 
 ## Requirements
 
-- npm v3+
+- npm v6+
 
 ## Quick Examples
 
 ```
-npm install bedrock-express
+npm install @bedrock/express
 ```
 
 ```js
@@ -39,7 +39,7 @@ be enforced by a session store on the server as opposed to the client.
 `config.express.session.ttl` defaults to 30 minutes in milliseconds.
 
 This option should be used by [express-session storage implementations][]
-that can access `bedrock-express` configuration options.
+that can access `@bedrock/express` configuration options.
 [`bedrock-session-mongodb`](https://github.com/digitalbazaar/bedrock-session-mongodb/pull/12/files)
 can be used as an example.
 
@@ -64,8 +64,8 @@ HTTP requests arrive, they will be redirected to HTTPS. If you want to
 enable HTTP requests, do the following:
 
 ```js
-const brServer = require('bedrock-server');
-const brExpress = require('bedrock-express');
+import * as brServer from '@bedrock/server';
+import * as brExpress from '@bedrock/express';
 
 // track when bedrock is ready to attach express
 bedrock.events.on('bedrock.ready', function() {
