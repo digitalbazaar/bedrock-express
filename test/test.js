@@ -1,14 +1,15 @@
-/*
+/*!
  * Copyright (c) 2022 Digital Bazaar, Inc. All rights reserved.
  */
-const bedrock = require('bedrock');
-require('bedrock-https-agent');
-const path = require('path');
+import * as bedrock from '@bedrock/core';
+import '@bedrock/https-agent';
+import {fileURLToPath} from 'url';
+import path from 'path';
+import {asyncHandler, middleware} from '@bedrock/express';
 
-const {asyncHandler, middleware: {acceptableContent}} =
-  require('bedrock-express');
-
+const {acceptableContent} = middleware;
 const {util: {BedrockError}} = bedrock;
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 bedrock.events.on('bedrock-express.configure.static', () => {
   bedrock.config.express.static.push({
@@ -81,5 +82,5 @@ bedrock.events.on('bedrock-express.configure.routes', app => {
     }));
 });
 
-require('bedrock-test');
+import '@bedrock/test';
 bedrock.start();

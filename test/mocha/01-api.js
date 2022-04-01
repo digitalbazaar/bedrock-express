@@ -1,12 +1,10 @@
 /*!
  * Copyright (c) 2022 Digital Bazaar, Inc. All rights reserved.
  */
-'use strict';
-
-const {agent} = require('bedrock-https-agent');
-const fs = require('fs');
-const {httpClient} = require('@digitalbazaar/http-client');
-const path = require('path');
+import {agent} from '@bedrock/https-agent';
+import fs from 'fs';
+import {httpClient} from '@digitalbazaar/http-client';
+import path from 'path';
 
 const {readFile} = fs.promises;
 
