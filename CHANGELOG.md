@@ -6,6 +6,7 @@
 - **BREAKING**: Update peer deps:
   - `@bedrock/core@6`
   - `@bedrock/server@5`.
+- Use renamed `fastify-express` (new name: `@fastify/express`).
 
 ## 7.0.1 - 2022-04-01
 
