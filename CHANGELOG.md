@@ -1,5 +1,12 @@
 # bedrock-express ChangeLog
 
+## 8.0.0 - 2022-04-xx
+
+### Changed
+- **BREAKING**: Update peer deps:
+  - `@bedrock/core@6`
+  - `@bedrock/server@5`.
+
 ## 7.0.1 - 2022-04-01
 
 ### Fixed
