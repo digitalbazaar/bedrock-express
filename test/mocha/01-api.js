@@ -2,12 +2,10 @@
  * Copyright (c) 2022 Digital Bazaar, Inc. All rights reserved.
  */
 import {agent} from '@bedrock/https-agent';
-import {createRequire} from 'module';
-import {fileURLToPath} from 'url';
-import fs from 'fs';
-import path from 'path';
-const require = createRequire(import.meta.url);
-const {httpClient} = require('@digitalbazaar/http-client');
+import {fileURLToPath} from 'node:url';
+import fs from 'node:fs';
+import {httpClient} from '@digitalbazaar/http-client';
+import path from 'node:path';
 
 const {readFile} = fs.promises;
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -52,7 +50,7 @@ describe('configured routes', () => {
     should.not.exist(res);
     should.exist(err);
     err.status.should.equal(404);
-    err.message.should.equal('Not Found.');
+    err.message.should.include('Not Found');
     err.response.headers.get('content-type')
       .should.equal('application/json; charset=utf-8');
   });
@@ -84,7 +82,7 @@ describe('configured routes', () => {
     should.not.exist(res);
     should.exist(err);
     err.status.should.equal(404);
-    err.message.should.equal('Not Found');
+    err.message.should.include('Not Found');
     err.response.headers.get('content-type')
       .should.equal('text/plain');
   });
@@ -160,7 +158,7 @@ describe('configured routes', () => {
     should.not.exist(res);
     should.exist(err);
     err.status.should.equal(404);
-    err.message.should.equal('Route GET:/baz.html not found');
+    err.message.should.include('Route GET:/baz.html not found');
   });
 
   it('should return 404 if non root static file is not found ', async () => {
@@ -176,7 +174,7 @@ describe('configured routes', () => {
     should.not.exist(res);
     should.exist(err);
     err.status.should.equal(404);
-    err.message.should.equal('Route GET:/static/baz.html not found');
+    err.message.should.include('Route GET:/static/baz.html not found');
   });
   it('should respond with success if content type is acceptable when ' +
     'passing multiple arguments to acceptableContent', async () => {
@@ -254,6 +252,6 @@ describe('configured routes', () => {
       should.not.exist(res);
       should.exist(err);
       err.status.should.equal(415);
-      err.message.should.equal('Unsupported Media Type');
+      err.message.should.include('Unsupported Media Type');
     });
 });
