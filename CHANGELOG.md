@@ -7,6 +7,8 @@
   - `@bedrock/core@6`
   - `@bedrock/server@5`.
 - Use renamed `fastify-express` (new name: `@fastify/express`).
+- **BREAKING**: `config.express.staticOptions.maxAge` is now computed from
+  `config.express.cache.maxAge` by default.
 
 ## 7.0.1 - 2022-04-01
 
