@@ -1,6 +1,6 @@
 # bedrock-express ChangeLog
 
-## 8.0.0 - 2022-04-xx
+## 8.0.0 - 2022-04-28
 
 ### Changed
 - **BREAKING**: Update peer deps:
