@@ -1,5 +1,10 @@
 # bedrock-express ChangeLog
 
+## 8.1.0 -
+
+### Changed
+- Allow json `req.body`s that are not Arrays or Objects.
+
 ## 8.0.0 - 2022-04-28
 
 ### Changed
