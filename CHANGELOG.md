@@ -1,9 +1,12 @@
 # bedrock-express ChangeLog
 
-## 8.1.0 -
+## 8.1.0 - 2022-10-10
 
 ### Changed
-- Allow json `req.body`s that are not Arrays or Objects.
+- Allow json `req.body`s that are not Arrays or Objects. This change
+  allows the request handler or other middleware (usually a JSON schema
+  validator) to properly validate and produce a more useful error --
+  and for applications to accept `null` or other non-strict JSON values.
 
 ## 8.0.0 - 2022-04-28
 
