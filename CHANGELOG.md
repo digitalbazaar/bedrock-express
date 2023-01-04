@@ -1,5 +1,11 @@
 # bedrock-express ChangeLog
 
+## 8.2.0 - 2023-01-xx
+
+### Changed
+- Update `fastify` and `@fastify/express` to latest version to address
+  [CVE-2022-39288](https://nvd.nist.gov/vuln/detail/CVE-2022-39288).
+
 ## 8.1.0 - 2022-10-10
 
 ### Changed
