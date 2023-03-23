@@ -1,6 +1,6 @@
 # bedrock-express ChangeLog
 
-## 8.2.0 - 2023-01-xx
+## 8.2.0 - 2023-03-23
 
 ### Changed
 - Update `fastify` and `@fastify/express` to latest version to address
