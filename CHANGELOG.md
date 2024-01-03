@@ -1,5 +1,10 @@
 # bedrock-express ChangeLog
 
+## 8.2.1 - 2024-xx-xx
+
+### Fixed
+- Format cors correctly when using boolean from bedrock config system.
+
 ## 8.2.0 - 2023-03-23
 
 ### Changed
