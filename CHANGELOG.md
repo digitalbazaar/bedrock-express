@@ -1,5 +1,10 @@
 # bedrock-express ChangeLog
 
+## 8.3.0 - xxxx-xx-xx
+
+### Changed
+- Open Source under BSD-3-Clause license.
+
 ## 8.2.1 - 2024-01-03
 
 ### Fixed

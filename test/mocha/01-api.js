@@ -1,5 +1,7 @@
 /*!
- * Copyright (c) 2022 Digital Bazaar, Inc. All rights reserved.
+ * Copyright (c) 2022-2024 Digital Bazaar, Inc.
+ *
+ * SPDX-License-Identifier: BSD-3-Clause
  */
 import {agent} from '@bedrock/https-agent';
 import {fileURLToPath} from 'node:url';
