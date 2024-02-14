@@ -177,7 +177,7 @@ http server framework. Some new events were added related to fastify setup.
     assembled via all the previous events has been added to `fastify` so
     that it can be served on `bedrock-server.ready`.
 
-# License
+## License
 
 Bedrock and all Bedrock modules are:
 
