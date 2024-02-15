@@ -1,5 +1,10 @@
 # bedrock-express ChangeLog
 
+## 8.4.0 - 2024-mm-dd
+
+### Changed
+- Relicense under the Apache-2.0 license.
+
 ## 8.3.0 - 2024-mm-dd
 
 ### Changed
