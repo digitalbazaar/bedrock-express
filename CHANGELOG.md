@@ -1,5 +1,11 @@
 # bedrock-express ChangeLog
 
+## 8.3.1 - 2024-mm-dd
+
+### Fixed
+- Fix `server` instance built for fastify so that it only calls  `callback()`
+  in `server.listen` if present and so that it always emits `listening` event.
+
 ## 8.3.0 - 2024-02-28
 
 ### Changed
