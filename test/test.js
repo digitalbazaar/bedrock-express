@@ -15,12 +15,11 @@
  *
  * SPDX-License-Identifier: Apache-2.0
  */
-
 import * as bedrock from '@bedrock/core';
-import '@bedrock/https-agent';
+import {asyncHandler, middleware} from '@bedrock/express';
 import {fileURLToPath} from 'url';
 import path from 'path';
-import {asyncHandler, middleware} from '@bedrock/express';
+import '@bedrock/https-agent';
 
 const {acceptableContent} = middleware;
 const {util: {BedrockError}} = bedrock;

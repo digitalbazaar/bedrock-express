@@ -15,8 +15,7 @@
  *
  * SPDX-License-Identifier: Apache-2.0
  */
-
-import {fastify, _setFastify} from '@bedrock/express';
+import {_setFastify, fastify} from '@bedrock/express';
 
 describe('fastify', () => {
   before(() => {

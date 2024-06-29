@@ -15,11 +15,10 @@
  *
  * SPDX-License-Identifier: Apache-2.0
  */
-
 import {config} from '@bedrock/core';
-import '@bedrock/https-agent';
 import {fileURLToPath} from 'url';
 import path from 'path';
+import '@bedrock/https-agent';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
