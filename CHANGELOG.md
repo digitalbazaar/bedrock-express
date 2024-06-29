@@ -1,6 +1,6 @@
 # bedrock-express ChangeLog
 
-## 8.3.1 - 2024-mm-dd
+## 8.3.1 - 2024-06-29
 
 ### Fixed
 - Fix `server` instance built for fastify so that it only calls  `callback()`
