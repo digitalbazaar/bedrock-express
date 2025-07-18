@@ -1,5 +1,10 @@
 # bedrock-express ChangeLog
 
+## 8.3.2 - 2025-07-dd
+
+### Fixed
+- Update dependencies to get latest fixes.
+
 ## 8.3.1 - 2024-06-29
 
 ### Fixed
