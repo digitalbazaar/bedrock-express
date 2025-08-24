@@ -231,7 +231,7 @@ describe('configured routes', () => {
     res.data.success.should.equal(true);
   });
   it('should respond with success if content type is acceptable when ' +
-  'passing options of type array to acceptableContent', async () => {
+    'passing options of type array to acceptableContent', async () => {
     let res;
     let err;
     try {
@@ -269,4 +269,174 @@ describe('configured routes', () => {
       err.status.should.equal(415);
       err.message.should.include('Unsupported Media Type');
     });
+  it('should respond with success if content <= 1b', async () => {
+    let res;
+    let err;
+    try {
+      res = await httpClient.post(`${BASE_URL}/json-size-limit/1b`, {
+        agent,
+        json: 1
+      });
+    } catch(e) {
+      err = e;
+    }
+    should.exist(res);
+    should.not.exist(err);
+    res.status.should.equal(200);
+    res.data.success.should.equal(true);
+  });
+  it('should respond with error if content > 1b', async () => {
+    let res;
+    let err;
+    try {
+      res = await httpClient.post(`${BASE_URL}/json-size-limit/1b`, {
+        agent,
+        json: {}
+      });
+    } catch(e) {
+      err = e;
+    }
+    should.not.exist(res);
+    should.exist(err);
+    err.status.should.equal(413);
+    err.message.should.include('Content is too large');
+  });
+  it('should respond with success if content <= 100b', async () => {
+    let res;
+    let err;
+    try {
+      res = await httpClient.post(`${BASE_URL}/json-size-limit/100b`, {
+        agent,
+        json: {}
+      });
+    } catch(e) {
+      err = e;
+    }
+    should.exist(res);
+    should.not.exist(err);
+    res.status.should.equal(200);
+    res.data.success.should.equal(true);
+  });
+  it('should respond with error if content > 100b', async () => {
+    let res;
+    let err;
+    try {
+      res = await httpClient.post(`${BASE_URL}/json-size-limit/100b`, {
+        agent,
+        json: 'a'.repeat(99)
+      });
+    } catch(e) {
+      err = e;
+    }
+    should.not.exist(res);
+    should.exist(err);
+    err.status.should.equal(413);
+    err.message.should.include('Content is too large');
+  });
+  it('should respond with success if content <= 101kb', async () => {
+    let res;
+    let err;
+    try {
+      res = await httpClient.post(`${BASE_URL}/json-size-limit/101kb`, {
+        agent,
+        // subtract 2 for double quote chars
+        json: 'a'.repeat(101 * 1024 - 2)
+      });
+    } catch(e) {
+      err = e;
+    }
+    should.exist(res);
+    should.not.exist(err);
+    res.status.should.equal(200);
+    res.data.success.should.equal(true);
+  });
+  it('should respond with error if content > 101kb', async () => {
+    let res;
+    let err;
+    try {
+      res = await httpClient.post(`${BASE_URL}/json-size-limit/101kb`, {
+        agent,
+        // 2 double quote chars will put this over the limit
+        json: 'a'.repeat(101 * 1024)
+      });
+    } catch(e) {
+      err = e;
+    }
+    should.not.exist(res);
+    should.exist(err);
+    err.status.should.equal(413);
+    err.message.should.include('Content is too large');
+  });
+  it('should respond with success if content <= 100kb w/path', async () => {
+    let res;
+    let err;
+    try {
+      const url = `${BASE_URL}/json-size-limit/any/100kb/some/path`;
+      res = await httpClient.post(url, {
+        agent,
+        // subtract 2 for double quote chars
+        json: 'a'.repeat(100 * 1024 - 2)
+      });
+    } catch(e) {
+      err = e;
+    }
+    should.exist(res);
+    should.not.exist(err);
+    res.status.should.equal(200);
+    res.data.success.should.equal(true);
+  });
+  it('should respond with error if content > 100kb w/path', async () => {
+    let res;
+    let err;
+    try {
+      const url = `${BASE_URL}/json-size-limit/any/100kb/some/path`;
+      res = await httpClient.post(url, {
+        agent,
+        // 2 double quote chars will put this over the limit
+        json: 'a'.repeat(100 * 1024)
+      });
+    } catch(e) {
+      err = e;
+    }
+    should.not.exist(res);
+    should.exist(err);
+    err.status.should.equal(413);
+    err.message.should.include('Content is too large');
+  });
+  it('should respond with success if content <= 101kb w/path', async () => {
+    let res;
+    let err;
+    try {
+      const url = `${BASE_URL}/json-size-limit/any/101kb/some/path`;
+      res = await httpClient.post(url, {
+        agent,
+        // subtract 2 for double quote chars
+        json: 'a'.repeat(101 * 1024 - 2)
+      });
+    } catch(e) {
+      err = e;
+    }
+    should.exist(res);
+    should.not.exist(err);
+    res.status.should.equal(200);
+    res.data.success.should.equal(true);
+  });
+  it('should respond with error if content > 101kb w/path', async () => {
+    let res;
+    let err;
+    try {
+      const url = `${BASE_URL}/json-size-limit/any/101kb/some/path`;
+      res = await httpClient.post(url, {
+        agent,
+        // 2 double quote chars will put this over the limit
+        json: 'a'.repeat(101 * 1024)
+      });
+    } catch(e) {
+      err = e;
+    }
+    should.not.exist(res);
+    should.exist(err);
+    err.status.should.equal(413);
+    err.message.should.include('Content is too large');
+  });
 });
