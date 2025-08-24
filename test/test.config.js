@@ -29,24 +29,32 @@ config.express.jsonErrorLevel = 'summary';
 
 // test JSON parsing limits
 config.express.bodyParser.routes['/json-size-limit/1b'] = {
-  strict: false,
-  limit: '1b',
-  type: ['json', '+json']
+  json: {
+    strict: false,
+    limit: '1b',
+    type: ['json', '+json']
+  }
 };
 config.express.bodyParser.routes['/json-size-limit/100b'] = {
-  strict: false,
-  limit: '100b',
-  type: ['json', '+json']
+  json: {
+    strict: false,
+    limit: '100b',
+    type: ['json', '+json']
+  }
 };
 config.express.bodyParser.routes['/json-size-limit/101kb'] = {
-  strict: false,
-  limit: '101kb',
-  type: ['json', '+json']
+  json: {
+    strict: false,
+    limit: '101kb',
+    type: ['json', '+json']
+  }
 };
 config.express.bodyParser.routes['/json-size-limit/any/101kb/*'] = {
-  strict: false,
-  limit: '101kb',
-  type: ['json', '+json']
+  json: {
+    strict: false,
+    limit: '101kb',
+    type: ['json', '+json']
+  }
 };
 
 config.mocha.tests.push(path.join(__dirname, 'mocha'));
