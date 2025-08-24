@@ -1,5 +1,5 @@
 /*!
- * Copyright 2022 - 2024 Digital Bazaar, Inc.
+ * Copyright 2022 - 2025 Digital Bazaar, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,5 +26,27 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 config['https-agent'].rejectUnauthorized = false;
 
 config.express.jsonErrorLevel = 'summary';
+
+// test JSON parsing limits
+config.express.bodyParser.routes['/json-size-limit/1b'] = {
+  strict: false,
+  limit: '1b',
+  type: ['json', '+json']
+};
+config.express.bodyParser.routes['/json-size-limit/100b'] = {
+  strict: false,
+  limit: '100b',
+  type: ['json', '+json']
+};
+config.express.bodyParser.routes['/json-size-limit/101kb'] = {
+  strict: false,
+  limit: '101kb',
+  type: ['json', '+json']
+};
+config.express.bodyParser.routes['/json-size-limit/any/101kb/*'] = {
+  strict: false,
+  limit: '101kb',
+  type: ['json', '+json']
+};
 
 config.mocha.tests.push(path.join(__dirname, 'mocha'));

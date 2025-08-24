@@ -94,6 +94,33 @@ bedrock.events.on('bedrock-express.configure.routes', app => {
     asyncHandler(async (req, res) => {
       res.json({success: true});
     }));
+  // test JSON parser limits ...
+  app.post('/json-size-limit/1b',
+    acceptableContent('json', '+json'),
+    asyncHandler(async (req, res) => {
+      res.json({success: true});
+    }));
+  app.post('/json-size-limit/100b',
+    acceptableContent('json', '+json'),
+    asyncHandler(async (req, res) => {
+      res.json({success: true});
+    }));
+  app.post('/json-size-limit/101kb',
+    acceptableContent('json', '+json'),
+    asyncHandler(async (req, res) => {
+      res.json({success: true});
+    }));
+  app.post('/json-size-limit/any/101kb/some/path',
+    acceptableContent('json', '+json'),
+    asyncHandler(async (req, res) => {
+      res.json({success: true});
+    }));
+  // uses default of 100kb
+  app.post('/json-size-limit/any/100kb/some/path',
+    acceptableContent('json', '+json'),
+    asyncHandler(async (req, res) => {
+      res.json({success: true});
+    }));
 });
 
 import '@bedrock/test';
