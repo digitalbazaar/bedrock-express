@@ -1,6 +1,6 @@
 # bedrock-express ChangeLog
 
-## 8.4.0 - 2025-mm-dd
+## 8.4.0 - 2025-08-24
 
 ### Added
 - Make built-in body parser configurable via bedrock config, including default
