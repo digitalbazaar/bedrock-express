@@ -142,7 +142,6 @@ http server framework. Some new events were added related to fastify setup.
     cache handler for dynamic content is installed. By default, caching for
     dynamic content is disabled by setting these headers:
     - Cache-Control: no-cache, no-store, must-revalidate
-    - Pragma: no-cache
     - Expires: 0
     Listeners may replace and/or cancel this behavior.
 - **bedrock-express.configure.router**
