@@ -1,6 +1,6 @@
 # bedrock-express ChangeLog
 
-## 8.5.0 - 2025-mm-dd
+## 8.5.0 - 2025-09-18
 
 ### Changed
 - Remove obsolete `pragma` header from default dynamic route headers.
