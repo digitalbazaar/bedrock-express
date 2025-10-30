@@ -2,8 +2,9 @@
 
 ## 8.5.1 - 2025-10-dd
 
-### Changed
-- Fix fastify request/reply after fastify-express runs.
+### Fixed
+- Ensure fastify-express does not interfere with native fastify route
+  handlers.
 
 ## 8.5.0 - 2025-09-18
 
