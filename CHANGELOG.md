@@ -1,6 +1,6 @@
 # bedrock-express ChangeLog
 
-## 8.5.1 - 2025-10-dd
+## 8.5.1 - 2025-10-31
 
 ### Fixed
 - Ensure fastify-express does not interfere with native fastify route
