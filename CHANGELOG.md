@@ -5,9 +5,11 @@
 ### Fixed
 - Use `cors()` defaults when cors options are specified as `true` in the
   bedrock configuration instead of as an object with granular options. It is
-  important that the defaults are used in this case and not just the "origin"
-  reflection mechanism both for security reasons and because some newer
-  browsers do not send an `origin` header in some circumstances.
+  important that the defaults are used (which will use a wildcard, `*`, for
+  the `access-control-allow-origin` header) in this case and not just the
+  "origin" reflection mechanism both for security reasons (see CORS processing
+  rules for wildcards) and because some newer browsers do not send an `origin`
+  header in some circumstances.
 
 ## 8.5.1 - 2025-10-31
 
