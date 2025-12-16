@@ -1,6 +1,6 @@
 # bedrock-express ChangeLog
 
-## 8.5.2 - 2025-12-dd
+## 8.5.2 - 2025-12-16
 
 ### Fixed
 - Use `cors()` defaults when cors options are specified as `true` in the
