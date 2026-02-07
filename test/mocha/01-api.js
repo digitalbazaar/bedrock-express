@@ -106,7 +106,7 @@ describe('configured routes', () => {
     let err;
     try {
       res = await httpClient.get(`${BASE_URL}/static/foo`, {
-        agent,
+        agent
       });
     } catch(e) {
       err = e;
@@ -126,7 +126,7 @@ describe('configured routes', () => {
       let err;
       try {
         res = await httpClient.get(`${BASE_URL}/static/bar.html`, {
-          agent,
+          agent
         });
       } catch(e) {
         err = e;
@@ -146,7 +146,7 @@ describe('configured routes', () => {
       let err;
       try {
         res = await httpClient.get(`${BASE_URL}/bar.html`, {
-          agent,
+          agent
         });
       } catch(e) {
         err = e;
@@ -165,7 +165,7 @@ describe('configured routes', () => {
     let err;
     try {
       res = await httpClient.get(`${BASE_URL}/baz.html`, {
-        agent,
+        agent
       });
     } catch(e) {
       err = e;
@@ -181,7 +181,7 @@ describe('configured routes', () => {
     let err;
     try {
       res = await httpClient.get(`${BASE_URL}/static/baz.html`, {
-        agent,
+        agent
       });
     } catch(e) {
       err = e;
