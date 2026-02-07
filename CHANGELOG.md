@@ -1,5 +1,16 @@
 # bedrock-express ChangeLog
 
+## 9.0.0 - 2026-02-xx
+
+### Changed
+- **BREAKING**: Update dependencies:
+  - `@fastify/express@4`
+  - `body-parser@2`
+  - `fastify@5`
+- Update minor dependencies.
+- Update peer minor dependencies:
+- Update test dependencies.
+
 ## 8.5.2 - 2025-12-16
 
 ### Fixed
