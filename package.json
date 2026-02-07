@@ -11,7 +11,7 @@
     "lib/**/*.js"
   ],
   "scripts": {
-    "test": "node test.js",
+    "test": "cd test && npm run test",
     "lint": "eslint"
   },
   "repository": {
