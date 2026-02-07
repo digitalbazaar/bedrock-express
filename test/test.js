@@ -17,8 +17,8 @@
  */
 import * as bedrock from '@bedrock/core';
 import {asyncHandler, middleware} from '@bedrock/express';
-import {fileURLToPath} from 'url';
-import path from 'path';
+import {fileURLToPath} from 'node:url';
+import path from 'node:path';
 import '@bedrock/https-agent';
 
 const {acceptableContent} = middleware;
@@ -30,21 +30,21 @@ bedrock.events.on('bedrock-express.configure.static', () => {
     route: '/static/foo',
     path: path.join(__dirname, 'static', 'foo.html'),
     file: true,
-    cors: true,
+    cors: true
   });
   bedrock.config.express.static.push({
     route: '/static',
     path: path.join(__dirname, 'static'),
     cors: {
       exposedHeaders: ['Date', 'Location', 'Content-Length']
-    },
+    }
   });
   bedrock.config.express.static.push({
     route: '/static',
     path: path.join(__dirname, 'static', 'baz.html'),
     cors: {
       exposedHeaders: ['Date', 'Location', 'Content-Length']
-    },
+    }
   });
   bedrock.config.express.static.push(
     path.join(__dirname, 'static'));
@@ -58,13 +58,13 @@ bedrock.events.on('bedrock-express.configure.routes', app => {
   app.get('/permission-denied-error', asyncHandler(async (req, res) => {
     throw new BedrockError('Permission denied.', 'PermissionDenied', {
       public: true,
-      httpStatusCode: 403,
+      httpStatusCode: 403
     });
   }));
   // eslint-disable-next-line no-unused-vars
   app.get('/not-found-error', asyncHandler(async (req, res) => {
     throw new BedrockError('Not Found.', 'NotFound', {
-      public: true,
+      public: true
     });
   }));
   // eslint-disable-next-line no-unused-vars
@@ -74,7 +74,7 @@ bedrock.events.on('bedrock-express.configure.routes', app => {
   // eslint-disable-next-line no-unused-vars
   app.get('/unhandled-error', asyncHandler(async (req, res) => {
     const err = new BedrockError('Not Found.', 'NotFound', {
-      public: true,
+      public: true
     });
     err.status = 404;
     throw err;
