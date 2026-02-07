@@ -49,8 +49,7 @@
   "devDependencies": {
     "eslint": "^8.57.0",
     "eslint-config-digitalbazaar": "^5.2.0",
-    "eslint-plugin-jsdoc": "^48.5.0",
-    "jsdoc-to-markdown": "^8.0.1"
+    "eslint-plugin-jsdoc": "^48.5.0"
   },
   "engines": {
     "node": ">=20"
