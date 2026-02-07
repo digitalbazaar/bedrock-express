@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "test": "node test.js",
-    "lint": "eslint ."
+    "lint": "eslint"
   },
   "repository": {
     "type": "git",
@@ -52,9 +52,8 @@
     "lib": "./lib"
   },
   "devDependencies": {
-    "eslint": "^8.57.0",
-    "eslint-config-digitalbazaar": "^5.2.0",
-    "eslint-plugin-jsdoc": "^48.5.0"
+    "@digitalbazaar/eslint-config": "^8.0.1",
+    "eslint": "^9.39.2"
   },
   "engines": {
     "node": ">=20"
