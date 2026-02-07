@@ -8,8 +8,7 @@ server.
 
 ## Requirements
 
-- node v18+
-- npm v9+
+- Node.js v20+
 
 ## Quick Examples
 
