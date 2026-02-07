@@ -16,11 +16,8 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 import {config} from '@bedrock/core';
-import {fileURLToPath} from 'node:url';
 import path from 'node:path';
 import '@bedrock/https-agent';
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // set this to false to ignore SSL errors in development
 config['https-agent'].rejectUnauthorized = false;
@@ -57,4 +54,4 @@ config.express.bodyParser.routes['/json-size-limit/any/101kb/*'] = {
   }
 };
 
-config.mocha.tests.push(path.join(__dirname, 'mocha'));
+config.mocha.tests.push(path.join(import.meta.dirname, 'mocha'));
