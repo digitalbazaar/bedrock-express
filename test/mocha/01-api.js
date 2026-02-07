@@ -17,13 +17,11 @@
  */
 
 import {agent} from '@bedrock/https-agent';
-import {fileURLToPath} from 'node:url';
 import fs from 'node:fs';
 import {httpClient} from '@digitalbazaar/http-client';
 import path from 'node:path';
 
 const {readFile} = fs.promises;
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 describe('configured routes', () => {
   const BASE_URL = `https://localhost:18443`;
@@ -115,7 +113,7 @@ describe('configured routes', () => {
     should.not.exist(err);
     res.status.should.equal(200);
     const body = await res.text();
-    const filepath = path.join(__dirname, '..', 'static', 'foo.html');
+    const filepath = path.join(import.meta.dirname, '..', 'static', 'foo.html');
     const content = await readFile(filepath, 'utf-8');
     body.should.equal(content);
   });
@@ -135,7 +133,8 @@ describe('configured routes', () => {
       should.not.exist(err);
       res.status.should.equal(200);
       const body = await res.text();
-      const filepath = path.join(__dirname, '..', 'static', 'bar.html');
+      const filepath = path.join(
+        import.meta.dirname, '..', 'static', 'bar.html');
       const content = await readFile(filepath, 'utf-8');
       body.should.equal(content);
     });
@@ -155,7 +154,8 @@ describe('configured routes', () => {
       should.not.exist(err);
       res.status.should.equal(200);
       const body = await res.text();
-      const filepath = path.join(__dirname, '..', 'static', 'bar.html');
+      const filepath = path.join(
+        import.meta.dirname, '..', 'static', 'bar.html');
       const content = await readFile(filepath, 'utf-8');
       body.should.equal(content);
     });

@@ -17,37 +17,35 @@
  */
 import * as bedrock from '@bedrock/core';
 import {asyncHandler, middleware} from '@bedrock/express';
-import {fileURLToPath} from 'node:url';
 import path from 'node:path';
 import '@bedrock/https-agent';
 
 const {acceptableContent} = middleware;
 const {util: {BedrockError}} = bedrock;
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 bedrock.events.on('bedrock-express.configure.static', () => {
   bedrock.config.express.static.push({
     route: '/static/foo',
-    path: path.join(__dirname, 'static', 'foo.html'),
+    path: path.join(import.meta.dirname, 'static', 'foo.html'),
     file: true,
     cors: true
   });
   bedrock.config.express.static.push({
     route: '/static',
-    path: path.join(__dirname, 'static'),
+    path: path.join(import.meta.dirname, 'static'),
     cors: {
       exposedHeaders: ['Date', 'Location', 'Content-Length']
     }
   });
   bedrock.config.express.static.push({
     route: '/static',
-    path: path.join(__dirname, 'static', 'baz.html'),
+    path: path.join(import.meta.dirname, 'static', 'baz.html'),
     cors: {
       exposedHeaders: ['Date', 'Location', 'Content-Length']
     }
   });
   bedrock.config.express.static.push(
-    path.join(__dirname, 'static'));
+    path.join(import.meta.dirname, 'static'));
 });
 
 bedrock.events.on('bedrock-express.configure.routes', app => {
