@@ -8,7 +8,10 @@ server.
 
 ## Requirements
 
-- Node.js v20+
+This software requires and supports maintained recent versions of Node.js.
+Updates may remove support for older unmaintained platform versions. Please use
+dependency version lock files and testing to ensure compatibility with this
+software.
 
 ## Quick Examples
 
