@@ -1,6 +1,6 @@
 # bedrock-express ChangeLog
 
-## 9.0.0 - 2026-02-xx
+## 8.6.0 - 2026-04-xx
 
 ### Changed
 - **BREAKING**: Update dependencies:
@@ -10,6 +10,10 @@
 - Update minor dependencies.
 - Update peer minor dependencies:
 - Update test dependencies.
+- **NOTE**: Update supported platforms.
+  - Test on Node.js >=20.
+  - Update `engines.node` to `>=20`.
+  - Update README requirements section.
 
 ## 8.5.2 - 2025-12-16
 
