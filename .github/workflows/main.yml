@@ -23,7 +23,6 @@ jobs:
     - name: Run eslint
       run: npm run lint
   test-node:
-    needs: [lint]
     runs-on: ubuntu-latest
     timeout-minutes: 10
     strategy:
@@ -46,7 +45,6 @@ jobs:
         cd test
         npm test
   coverage:
-    needs: [test-node]
     runs-on: ubuntu-latest
     timeout-minutes: 10
     strategy:
@@ -74,4 +72,3 @@ jobs:
         files: ./test/coverage/lcov.info
         fail_ci_if_error: true
         token: ${{ secrets.CODECOV_TOKEN }}
-
