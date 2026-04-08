@@ -1,6 +1,6 @@
 # bedrock-express ChangeLog
 
-## 8.6.1 - 2026-04-dd
+## 8.6.1 - 2026-04-08
 
 ### Fixed
 - Fix erroneous double decoding of URL from fastify-express. Fastify-express
