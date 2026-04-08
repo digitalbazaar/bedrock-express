@@ -3,16 +3,18 @@
 ## 8.6.1 - 2026-04-dd
 
 ### Fixed
-- Fix erroneous double decoding of URL in fastify-express. Fastify-express
+- Fix erroneous double decoding of URL from fastify-express. Fastify-express
   added decoding to their URL processing to make the behavior consistent with
-  fastify router so that an inconsistency could not be exploited between the
-  two routing mechanisms, but the fastify routing mechanism is incorrect and
-  does not allow clients to correct submit URLs with path parameters that
-  are URL-encoded, because they will be forcibly decoded. To correct this, we
-  back out the extra decoding -- and, regarding the original problem that
-  fastify-express attempted to solve: bedrock-express only runs express on
-  routes that do not have a fastify handler (it is a fallback mechanism only),
-  so we do not have a known inconsistency problem to contend with.
+  fastify's router so that an inconsistency could not be exploited between the
+  two routing mechanisms. However, this change seems to have been made in the
+  wrong direction, because it does not allow clients to correctly submit URLs
+  with path parameters that are URL-encoded (as they will be forcibly decoded
+  prior to application processing, i.e., confusing the route handler in a
+  different and broken way). To correct this, we back out the extra decoding
+  and. Regarding the original problem that fastify-express attempted to solve:
+  bedrock-express only runs express on routes that do not have a fastify
+  handler (it is a fallback mechanism only), so we do not have a known
+  inconsistency problem to contend with.
 
 ## 8.6.0 - 2026-04-06
 
