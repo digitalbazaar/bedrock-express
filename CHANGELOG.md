@@ -3,9 +3,12 @@
 ## 8.6.2 - 2026-04-dd
 
 ### Fixed
-- Handle when `@fastify/express` uses express v5. The `@fastify/express@4`
-  package can erroneously and intermittently switch between using express v4
-  and express v5. This fix handles either case when installing HTTP2 support.
+- Handle when `@fastify/express` decorates `fastify` with a version of express
+  that does not match what is used in this package (e.g., this package uses
+  express 4 and sometimes the `@fastify/express@4` package can erroneously and
+  intermittently release updates that switch between either express v4 or v5).
+  This fix ensures the version of express that fastify is decorated with
+  matches the version this module uses.
 
 ## 8.6.1 - 2026-04-08
 

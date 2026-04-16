@@ -1,5 +1,5 @@
 /*!
- * Copyright 2022 - 2024 Digital Bazaar, Inc.
+ * Copyright 2022 - 2026 Digital Bazaar, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,8 +33,8 @@ describe('configured routes', () => {
     } catch(e) {
       err = e;
     }
-    should.exist(res);
     should.not.exist(err);
+    should.exist(res);
     res.status.should.equal(200);
     res.data.success.should.equal(true);
   });
