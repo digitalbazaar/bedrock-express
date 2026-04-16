@@ -1,6 +1,6 @@
 # bedrock-express ChangeLog
 
-## 8.6.2 - 2026-04-dd
+## 8.6.2 - 2026-04-16
 
 ### Fixed
 - Handle when `@fastify/express` decorates `fastify` with a version of express
