@@ -1,5 +1,12 @@
 # bedrock-express ChangeLog
 
+## 8.6.2 - 2026-04-dd
+
+### Fixed
+- Handle when `@fastify/express` uses express v5. The `@fastify/express@4`
+  package can erroneously and intermittently switch between using express v4
+  and express v5. This fix handles either case when installing HTTP2 support.
+
 ## 8.6.1 - 2026-04-08
 
 ### Fixed
