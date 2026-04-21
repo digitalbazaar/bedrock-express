@@ -113,6 +113,21 @@ bedrock.events.on('bedrock-express.configure.routes', app => {
     asyncHandler(async (req, res) => {
       res.json({success: true});
     }));
+  app.post('/json-size-limit/instances/:instanceId',
+    acceptableContent('json', '+json'),
+    asyncHandler(async (req, res) => {
+      res.json({success: true});
+    }));
+  app.post('/json-size-limit/instances/:instanceId/101kb/some/path',
+    acceptableContent('json', '+json'),
+    asyncHandler(async (req, res) => {
+      res.json({success: true});
+    }));
+  app.post('/json-size-limit/instances/:instanceId/102kb/some/path',
+    acceptableContent('json', '+json'),
+    asyncHandler(async (req, res) => {
+      res.json({success: true});
+    }));
   // uses default of 100kb
   app.post('/json-size-limit/any/100kb/some/path',
     acceptableContent('json', '+json'),

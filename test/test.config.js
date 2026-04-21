@@ -53,5 +53,28 @@ config.express.bodyParser.routes['/json-size-limit/any/101kb/*'] = {
     type: ['json', '+json']
   }
 };
+// set deeper route rules first
+config.express.bodyParser.routes['/json-size-limit/instances/*/102kb/*'] = {
+  json: {
+    strict: false,
+    limit: '102kb',
+    type: ['json', '+json']
+  }
+};
+// path param name is irrelevant (can be a/b/anything)
+config.express.bodyParser.routes['/json-size-limit/instances/:a/101kb/*'] = {
+  json: {
+    strict: false,
+    limit: '101kb',
+    type: ['json', '+json']
+  }
+};
+config.express.bodyParser.routes['/json-size-limit/instances/:b'] = {
+  json: {
+    strict: false,
+    limit: '101kb',
+    type: ['json', '+json']
+  }
+};
 
 config.mocha.tests.push(path.join(import.meta.dirname, 'mocha'));
