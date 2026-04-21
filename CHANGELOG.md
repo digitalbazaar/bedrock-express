@@ -1,6 +1,6 @@
 # bedrock-express ChangeLog
 
-## 8.6.3 - 2026-04-xx
+## 8.6.3 - 2026-04-21
 
 ### Changed
 - Downgrade to `body-parser@1` to ensure same version across packages and apps.
