@@ -4,6 +4,9 @@
 
 ### Changed
 - Downgrade to `body-parser@1` to ensure same version across packages and apps.
+- Update dependencies.
+  - `@fastify/express@4.0.5`
+  - `fastify@5.8.5`
 
 ## 8.6.2 - 2026-04-16
 
