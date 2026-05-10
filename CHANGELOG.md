@@ -1,6 +1,6 @@
 # bedrock-express ChangeLog
 
-## 8.6.4 - 2026-mm-dd
+## 8.6.4 - 2026-05-10
 
 ### Fixed
 - Ensure route-specific body parser configurations are applied prior to
