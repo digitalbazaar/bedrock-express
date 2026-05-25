@@ -1,6 +1,6 @@
 # bedrock-express ChangeLog
 
-## 8.6.6 - 2026-05-dd
+## 8.6.6 - 2026-05-24
 
 ### Fixed
 - Add patch to enable unpinning `@fastify/express@4`. A new `headersSent`
