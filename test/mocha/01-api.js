@@ -33,7 +33,7 @@ describe('configured routes', () => {
     } catch(e) {
       err = e;
     }
-    assertNoError(err);
+    should.not.exist(err);
     should.exist(res);
     res.status.should.equal(200);
     res.data.success.should.equal(true);
