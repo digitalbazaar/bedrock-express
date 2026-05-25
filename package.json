@@ -32,7 +32,7 @@
   },
   "homepage": "https://github.com/digitalbazaar/bedrock-express",
   "dependencies": {
-    "@fastify/express": "^4.0.5",
+    "@fastify/express": "=4.0.5",
     "body-parser": "^1.20.4",
     "compression": "^1.8.1",
     "cookie-parser": "^1.4.7",
