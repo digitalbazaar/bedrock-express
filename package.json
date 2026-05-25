@@ -1,6 +1,6 @@
 {
   "name": "@bedrock/express",
-  "version": "8.6.6",
+  "version": "8.6.7-0",
   "type": "module",
   "description": "Bedrock express module",
   "license": "Apache-2.0",
