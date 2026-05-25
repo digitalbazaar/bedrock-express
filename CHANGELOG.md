@@ -1,6 +1,6 @@
 # bedrock-express ChangeLog
 
-## 8.6.5 - 2026-05-dd
+## 8.6.5 - 2026-05-24
 
 ### Fixed
 - Pin to `@fastify/express@4.0.5` until this package's latest bug is fixed.
