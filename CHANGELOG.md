@@ -1,5 +1,15 @@
 # bedrock-express ChangeLog
 
+## 8.6.6 - 2026-05-dd
+
+### Fixed
+- Add patch to enable unpinning `@fastify/express@4`. A new `headersSent`
+  property was added to `reply.raw` in `@fastify/express@4.0.6` that is
+  set via `reply.raw.send()`. But this is the same function that this
+  library currently overwrites to correct a bug. Therefore, this fix also
+  reconfigures that new property to use the value from the overwriting
+  function.
+
 ## 8.6.5 - 2026-05-24
 
 ### Fixed
