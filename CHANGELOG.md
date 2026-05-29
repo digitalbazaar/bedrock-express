@@ -1,6 +1,6 @@
 # bedrock-express ChangeLog
 
-## 8.6.7 - 2026-05-dd
+## 8.6.7 - 2026-05-29
 
 ### Fixed
 - Add another patch to adjust for `@fastify/express@4` adding a `headersSent`
