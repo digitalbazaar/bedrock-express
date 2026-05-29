@@ -1,5 +1,15 @@
 # bedrock-express ChangeLog
 
+## 8.6.7 - 2026-05-dd
+
+### Fixed
+- Add another patch to adjust for `@fastify/express@4` adding a `headersSent`
+  property to the raw request. This patch removes that property as it seems
+  the mere presence of the property (even if set to `undefined` or `false`)
+  can cause some applications to abort. The property is now removed if it
+  is not truthy and only set once the raw response's `send()` function is
+  called (setting it to `true`).
+
 ## 8.6.6 - 2026-05-24
 
 ### Fixed
