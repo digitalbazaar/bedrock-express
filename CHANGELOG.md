@@ -1,5 +1,25 @@
 # bedrock-express ChangeLog
 
+## 8.7.0 - 2026-xx-xx
+
+### Removed
+- **BREAKING (undocumented API):** Removed the undocumented `fastify.use`
+  method. Its only purpose was internally mounting the express `app`; this is
+  now handled directly by the new express adapter. Modules should continue to
+  use the documented `bedrock-express.configure.*` event API.
+- Removed the `@fastify/express` dependency. The small amount of behavior
+  needed to run express inside fastify is now provided by an in-repo adapter
+  (`lib/express-adapter.js`).
+
+### Changed
+- Replaced `@fastify/express` and the reactive monkeypatching around it with a
+  minimal in-repo express adapter. The request URL is no longer decoded or
+  normalized before express routing (encoding is not a security boundary and
+  decoding corrupts encoded path parameters), and `headersSent` is no longer
+  added to the raw response until `send()` is called (its mere presence can
+  abort callers of the http2 `writeHead`). External behavior is otherwise
+  unchanged.
+
 ## 8.6.7 - 2026-05-29
 
 ### Fixed

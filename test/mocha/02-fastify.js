@@ -15,12 +15,19 @@
  *
  * SPDX-License-Identifier: Apache-2.0
  */
-import {_setFastify, fastify} from '@bedrock/express';
+import {_getFastify, _setFastify, fastify} from '@bedrock/express';
 
 describe('fastify', () => {
+  let realFastify;
   before(() => {
-    // Set fastify to null
+    // snapshot the real instance, then set fastify to null to exercise the
+    // proxy's not-ready error behavior
+    realFastify = _getFastify();
     _setFastify({fastify: null});
+  });
+  after(() => {
+    // restore the real instance so later test files are not affected
+    _setFastify({fastify: realFastify});
   });
   it('should throw error if fastify is null when getting prototype', () => {
     _assertInvalidStateError(() => {
