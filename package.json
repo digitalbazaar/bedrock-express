@@ -1,6 +1,6 @@
 {
   "name": "@bedrock/express",
-  "version": "8.6.8-0",
+  "version": "8.7.0",
   "type": "module",
   "description": "Bedrock express module",
   "license": "Apache-2.0",
@@ -32,7 +32,6 @@
   },
   "homepage": "https://github.com/digitalbazaar/bedrock-express",
   "dependencies": {
-    "@fastify/express": "^4.0.6",
     "body-parser": "^1.20.4",
     "compression": "^1.8.1",
     "cookie-parser": "^1.4.7",

@@ -12,3 +12,9 @@ npm-debug.log
 reports
 .nyc_output
 package-lock.json
+
+# local tooling / agent artifacts
+.claude
+.entire
+.fastembed_cache
+SLACK.md

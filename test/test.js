@@ -52,6 +52,17 @@ bedrock.events.on('bedrock-express.configure.routes', app => {
   app.get('/test', asyncHandler(async (req, res) => {
     res.json({success: true});
   }));
+  // echoes the route param and the raw request url so tests can verify that
+  // encoded path params are preserved and that `req.url` is not decoded
+  app.get('/encoded-param/:id', asyncHandler(async (req, res) => {
+    res.json({id: req.params.id, url: req.url, originalUrl: req.originalUrl});
+  }));
+  // sends twice; the second send must be a no-op (no throw, no duplicate
+  // response)
+  app.get('/double-send', asyncHandler(async (req, res) => {
+    res.json({order: 'first'});
+    res.json({order: 'second'});
+  }));
   // eslint-disable-next-line no-unused-vars
   app.get('/permission-denied-error', asyncHandler(async (req, res) => {
     throw new BedrockError('Permission denied.', 'PermissionDenied', {
