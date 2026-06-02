@@ -19,11 +19,13 @@
 // unit tests for the express adapter's request-compat hook; these exercise the
 // hook logic directly with fake req/reply objects so the http2 `headersSent`
 // invariant (which the http1 integration suite cannot reach) is covered
-import {enhanceRequest} from '@bedrock/express/lib/express-adapter.js';
+import {
+  createFallbackRunner, enhanceRequest, register
+} from '@bedrock/express/lib/express-adapter.js';
 
 // builds a minimal fake fastify request/reply pair mirroring what fastify
 // passes to an onRequest hook
-function makeReqReply({url = '/foo/a%2Fb'} = {}) {
+function makeReqReply({url = '/foo/a%2Fb', body, cookies} = {}) {
   const req = {
     id: 'req-1',
     hostname: 'example.test',
@@ -31,6 +33,8 @@ function makeReqReply({url = '/foo/a%2Fb'} = {}) {
     ips: [],
     protocol: 'https',
     log: {},
+    body,
+    cookies,
     raw: {url, headers: {}}
   };
   const reply = {
@@ -94,5 +98,72 @@ describe('express adapter (unit)', () => {
     enhanceRequest(req, reply, () => {});
     reply.raw.send('a');
     reply.raw.headersSent.should.equal(true);
+  });
+
+  it('should copy req.body onto req.raw (body-parser compat)', () => {
+    const {req, reply} = makeReqReply({body: {a: 1}});
+    enhanceRequest(req, reply, () => {});
+    req.raw.body.should.deep.equal({a: 1});
+  });
+
+  it('should copy req.cookies onto req.raw (cookie-parser compat)', () => {
+    const {req, reply} = makeReqReply({cookies: {sid: 'x'}});
+    enhanceRequest(req, reply, () => {});
+    req.raw.cookies.should.deep.equal({sid: 'x'});
+  });
+});
+
+describe('express adapter (register)', () => {
+  it('should throw if `expressApp` is not a function', () => {
+    let err;
+    try {
+      register({addHook() {}}, {expressApp: {}});
+    } catch(e) {
+      err = e;
+    }
+    should.exist(err);
+    err.should.be.instanceof(TypeError);
+  });
+});
+
+describe('express adapter fallback runner (unit)', () => {
+  it('should defer to fastify when a route matched', () => {
+    let appCalled = false;
+    const run = createFallbackRunner(() => {
+      appCalled = true;
+    });
+    const req = {routeOptions: {url: '/matched'}, raw: {}};
+    const reply = {raw: {}, getHeaders() {
+      return {};
+    }};
+    let nextCalled = false;
+    run(req, reply, () => {
+      nextCalled = true;
+    });
+    nextCalled.should.equal(true);
+    appCalled.should.equal(false);
+  });
+
+  it('should copy fastify-set headers onto reply.raw then run express', () => {
+    let appCalled = false;
+    const run = createFallbackRunner((rawReq, rawRes, next) => {
+      appCalled = true;
+      next();
+    });
+    const setHeaders = {};
+    const req = {routeOptions: {url: undefined}, raw: {}};
+    const reply = {
+      raw: {
+        setHeader(name, value) {
+          setHeaders[name] = value;
+        }
+      },
+      getHeaders() {
+        return {'x-test': 'yes'};
+      }
+    };
+    run(req, reply, () => {});
+    appCalled.should.equal(true);
+    setHeaders['x-test'].should.equal('yes');
   });
 });
