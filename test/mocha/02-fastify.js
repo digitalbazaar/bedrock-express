@@ -15,7 +15,16 @@
  *
  * SPDX-License-Identifier: Apache-2.0
  */
-import {_getFastify, _setFastify, fastify} from '@bedrock/express';
+import {_getFastify, _setFastify, app, fastify} from '@bedrock/express';
+
+describe('fastify backwards-compat decorators', () => {
+  it('should expose the root express `app` as `fastify.express`', () => {
+    // `@fastify/express` historically decorated the fastify instance with an
+    // `express` property; preserve that surface so external consumers that
+    // read `fastify.express` continue to work after the adapter rewrite
+    fastify.express.should.equal(app);
+  });
+});
 
 describe('fastify', () => {
   let realFastify;

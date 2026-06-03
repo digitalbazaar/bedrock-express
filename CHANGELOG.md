@@ -2,6 +2,12 @@
 
 ## 8.7.0 - 2026-xx-xx
 
+### Added
+- Preserve backwards compatibility for `fastify.express`. `@fastify/express`
+  used to decorate the fastify instance with an `express` property; the fastify
+  instance is now decorated with the root express `app` so external consumers
+  that read `fastify.express` continue to work.
+
 ### Removed
 - **BREAKING (undocumented API):** Removed the undocumented `fastify.use`
   method. Its only purpose was internally mounting the express `app`; this is
