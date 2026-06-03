@@ -57,6 +57,12 @@ bedrock.events.on('bedrock-express.configure.routes', app => {
   app.get('/encoded-param/:id', asyncHandler(async (req, res) => {
     res.json({id: req.params.id, url: req.url, originalUrl: req.originalUrl});
   }));
+  // echoes the raw request url and originalUrl for any path beneath it so
+  // tests can verify the adapter does exactly what express itself does to
+  // `req.url`: no decode, no duplicate-slash collapse, no semicolon handling
+  app.get('/echo-url/*', asyncHandler(async (req, res) => {
+    res.json({url: req.url, originalUrl: req.originalUrl, path: req.path});
+  }));
   // sends twice; the second send must be a no-op (no throw, no duplicate
   // response)
   app.get('/double-send', asyncHandler(async (req, res) => {
