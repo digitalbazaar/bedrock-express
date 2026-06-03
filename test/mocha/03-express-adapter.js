@@ -72,6 +72,55 @@ describe('express adapter', () => {
       res.status.should.equal(200);
       res.data.id.should.equal('a%2Fb');
     });
+    it('should set `originalUrl` equal to the raw `url`', async () => {
+      // express sets `req.originalUrl = req.originalUrl || req.url` and does
+      // nothing else to `url`; the adapter must match that (no decode, no
+      // normalize), so the two are identical on a top-level route
+      let res;
+      let err;
+      try {
+        res = await httpClient.get(`${BASE_URL}/echo-url/a%2Fb`, {agent});
+      } catch(e) {
+        err = e;
+      }
+      should.not.exist(err);
+      should.exist(res);
+      res.status.should.equal(200);
+      res.data.url.should.equal('/echo-url/a%2Fb');
+      res.data.originalUrl.should.equal('/echo-url/a%2Fb');
+    });
+    it('should NOT collapse duplicate slashes in the url', async () => {
+      // `@fastify/express` ran `normalizeUrl(..., {ignoreDuplicateSlashes})`,
+      // which express itself does NOT do. the adapter must leave duplicate
+      // slashes untouched, matching express.
+      let res;
+      let err;
+      try {
+        res = await httpClient.get(`${BASE_URL}/echo-url/a//b`, {agent});
+      } catch(e) {
+        err = e;
+      }
+      should.not.exist(err);
+      should.exist(res);
+      res.status.should.equal(200);
+      res.data.url.should.equal('/echo-url/a//b');
+    });
+    it('should NOT treat a semicolon as a delimiter in the url', async () => {
+      // `@fastify/express` ran `normalizeUrl(..., {useSemicolonDelimiter})`,
+      // which express itself does NOT do. the adapter must leave the semicolon
+      // in the path untouched, matching express.
+      let res;
+      let err;
+      try {
+        res = await httpClient.get(`${BASE_URL}/echo-url/a;b/c`, {agent});
+      } catch(e) {
+        err = e;
+      }
+      should.not.exist(err);
+      should.exist(res);
+      res.status.should.equal(200);
+      res.data.url.should.equal('/echo-url/a;b/c');
+    });
   });
 
   describe('response behavior', () => {
