@@ -20,8 +20,8 @@
 // hook logic directly with fake req/reply objects so the http2 `headersSent`
 // invariant (which the http1 integration suite cannot reach) is covered
 import {
-  createFallbackRunner, enhanceRequest, register
-} from '@bedrock/express/lib/express-adapter.js';
+  _createFallbackRunner, expressifyRequest, register
+} from '@bedrock/express/lib/expressAdapter.js';
 
 // builds a minimal fake fastify request/reply pair mirroring what fastify
 // passes to an onRequest hook
@@ -55,7 +55,7 @@ describe('express adapter (unit)', () => {
   it('should not define `headersSent` on reply.raw before send()', () => {
     const {req, reply} = makeReqReply();
     let nextCalled = false;
-    enhanceRequest(req, reply, () => {
+    expressifyRequest(req, reply, () => {
       nextCalled = true;
     });
     nextCalled.should.equal(true);
@@ -67,14 +67,14 @@ describe('express adapter (unit)', () => {
 
   it('should leave req.raw.url untouched (no decode/normalize)', () => {
     const {req, reply} = makeReqReply({url: '/foo/a%2Fb'});
-    enhanceRequest(req, reply, () => {});
+    expressifyRequest(req, reply, () => {});
     req.raw.url.should.equal('/foo/a%2Fb');
     req.raw.originalUrl.should.equal('/foo/a%2Fb');
   });
 
   it('should expose express-compat fields on req.raw', () => {
     const {req, reply} = makeReqReply();
-    enhanceRequest(req, reply, () => {});
+    expressifyRequest(req, reply, () => {});
     req.raw.id.should.equal('req-1');
     req.raw.hostname.should.equal('example.test');
     req.raw.ip.should.equal('127.0.0.1');
@@ -87,7 +87,7 @@ describe('express adapter (unit)', () => {
     reply.send = function() {
       sendCount++;
     };
-    enhanceRequest(req, reply, () => {});
+    expressifyRequest(req, reply, () => {});
     reply.raw.send('a');
     reply.raw.send('b');
     sendCount.should.equal(1);
@@ -95,20 +95,20 @@ describe('express adapter (unit)', () => {
 
   it('should define `headersSent` only after send() is called', () => {
     const {req, reply} = makeReqReply();
-    enhanceRequest(req, reply, () => {});
+    expressifyRequest(req, reply, () => {});
     reply.raw.send('a');
     reply.raw.headersSent.should.equal(true);
   });
 
   it('should copy req.body onto req.raw (body-parser compat)', () => {
     const {req, reply} = makeReqReply({body: {a: 1}});
-    enhanceRequest(req, reply, () => {});
+    expressifyRequest(req, reply, () => {});
     req.raw.body.should.deep.equal({a: 1});
   });
 
   it('should copy req.cookies onto req.raw (cookie-parser compat)', () => {
     const {req, reply} = makeReqReply({cookies: {sid: 'x'}});
-    enhanceRequest(req, reply, () => {});
+    expressifyRequest(req, reply, () => {});
     req.raw.cookies.should.deep.equal({sid: 'x'});
   });
 });
@@ -129,7 +129,7 @@ describe('express adapter (register)', () => {
 describe('express adapter fallback runner (unit)', () => {
   it('should defer to fastify when a route matched', () => {
     let appCalled = false;
-    const run = createFallbackRunner(() => {
+    const run = _createFallbackRunner(() => {
       appCalled = true;
     });
     const req = {routeOptions: {url: '/matched'}, raw: {}};
@@ -146,7 +146,7 @@ describe('express adapter fallback runner (unit)', () => {
 
   it('should copy fastify-set headers onto reply.raw then run express', () => {
     let appCalled = false;
-    const run = createFallbackRunner((rawReq, rawRes, next) => {
+    const run = _createFallbackRunner((rawReq, rawRes, next) => {
       appCalled = true;
       next();
     });

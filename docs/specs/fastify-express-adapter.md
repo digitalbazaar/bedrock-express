@@ -26,7 +26,7 @@
   
 - Remove the ~65 lines of counter-patching in `lib/index.js`.
   
-- Own a single small adapter (`lib/express-adapter.js`, ~120 lines). {>>Renamed from `fastify-express.js` per c1 — generic name avoids implying we still depend on `@fastify/express`. The file adapts Express middleware to run inside Fastify.<<}{id="c1" by="user" at="2026-06-02T14:23:12.635Z"}{#c2 re="c1"}
+- Own a single small adapter (`lib/expressAdapter.js`, ~120 lines). {>>Renamed from `fastify-express.js` per c1 — generic name avoids implying we still depend on `@fastify/express`. The file adapts Express middleware to run inside Fastify.<<}{id="c1" by="user" at="2026-06-02T14:23:12.635Z"}{#c2 re="c1"}
   
 - Preserve current external behavior of `bedrock-express` (events, config, middleware API, http2 support).
   
@@ -46,7 +46,7 @@
 
 So the adapter has exactly one responsibility: **mount the existing Express** `app` **as the handler for any request that no Fastify route claimed.** It does not collect middleware, decorate `fastify.use`, or expose any registry — those were artifacts of `@fastify/express`, not things Bedrock needs.
 
-New file `lib/express-adapter.js` exposing one helper:
+New file `lib/expressAdapter.js` exposing one helper:
 
 ```js
 register(fastify, {expressApp})
@@ -104,7 +104,7 @@ What we keep (because Express middleware genuinely needs it): `originalUrl`, `id
 **Replace with:**
 
 ```js
-import {register as registerExpressAdapter} from './express-adapter.js';
+import {register as registerExpressAdapter} from './expressAdapter.js';
 // ...
 // mounts `app` as the fallback handler; replaces both the
 // `@fastify/express` register call and the later `fastify.use(app)`
