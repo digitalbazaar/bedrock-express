@@ -1,6 +1,6 @@
 # bedrock-express ChangeLog
 
-## 8.6.8 - 2026-xx-xx
+## 8.6.8 - 2026-06-04
 
 ### Added
 - Preserve backwards compatibility for `fastify.express`. `@fastify/express`
