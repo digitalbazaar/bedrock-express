@@ -1,6 +1,6 @@
 # bedrock-express ChangeLog
 
-## 8.7.1 - 2026-xx.xx
+## 8.8.0 - 2026-xx.xx
 
 ### Changed
 - Update dependencies.
@@ -9,6 +9,7 @@
   - `fastify@5.12.1`
   - `morgan@1.11.0`
 - Update dev and test dependencies.
+- Update node support to 22.x to 26.x.
 
 ## 8.7.0 - 2026-06-04
 
