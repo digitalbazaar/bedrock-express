@@ -1,5 +1,15 @@
 # bedrock-express ChangeLog
 
+## 8.7.1 - 2026-xx.xx
+
+### Changed
+- Update dependencies.
+  - `body-parser@1.20.6`
+  - `express@4.22.2`
+  - `fastify@5.12.1`
+  - `morgan@1.11.0`
+- Update dev and test dependencies.
+
 ## 8.7.0 - 2026-06-04
 
 ### Added
