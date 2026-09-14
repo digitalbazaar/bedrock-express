@@ -1,5 +1,11 @@
 # bedrock-express ChangeLog
 
+## 8.8.1 - 2026-09-xx
+
+### Changed
+- Update all dependencies.
+  - Ensures various security fixes are used.
+
 ## 8.8.0 - 2026-08-21
 
 ### Changed
