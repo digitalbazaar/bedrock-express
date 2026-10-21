@@ -39,20 +39,20 @@
     "errorhandler": "^1.5.2",
     "express": "^4.22.3",
     "express-session": "^1.19.0",
-    "fastify": "^5.12.4",
+    "fastify": "^5.12.7",
     "method-override": "^3.0.0",
     "morgan": "^1.12.1"
   },
   "peerDependencies": {
     "@bedrock/core": "^6.3.0",
-    "@bedrock/server": "^5.2.0"
+    "@bedrock/server": "^5.2.1"
   },
   "directories": {
     "lib": "./lib"
   },
   "devDependencies": {
     "@digitalbazaar/eslint-config": "^9.0.0",
-    "eslint": "^10.10.0"
+    "eslint": "^10.13.0"
   },
   "engines": {
     "node": ">=22"
