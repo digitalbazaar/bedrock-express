@@ -1,6 +1,6 @@
 # bedrock-express ChangeLog
 
-## 8.8.2 - 2026-xx-xx
+## 8.8.2 - 2026-10-21
 
 ### Fixed
 - Fix `ERR_INTERNAL_ASSERTION` errors on every HTTP/1 response when running on
