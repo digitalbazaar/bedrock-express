@@ -1,5 +1,16 @@
 # bedrock-express ChangeLog
 
+## 8.8.2 - 2026-xx-xx
+
+### Fixed
+- Fix `ERR_INTERNAL_ASSERTION` errors on every HTTP/1 response when running on
+  Node.js 26.11.0+ with a native HTTP/2 server (`allowHTTP1`). HTTP/1 requests
+  were augmented with the express request API by wrapping them in a new
+  object, which express then assigned to `res.req`. Node.js 26.11.0+ asserts
+  that `res.req` is the original request when a response finishes. HTTP/1
+  requests are now augmented in place so the original request object is
+  preserved.
+
 ## 8.8.1 - 2026-09-14
 
 ### Changed

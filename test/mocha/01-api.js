@@ -38,6 +38,20 @@ describe('configured routes', () => {
     res.status.should.equal(200);
     res.data.success.should.equal(true);
   });
+  it('should preserve the node request object', async () => {
+    let res;
+    let err;
+    try {
+      res = await httpClient.get(`${BASE_URL}/request-identity`, {agent});
+    } catch(e) {
+      err = e;
+    }
+    should.not.exist(err);
+    should.exist(res);
+    res.status.should.equal(200);
+    res.data.isNodeRequest.should.equal(true);
+    res.data.isResponseRequest.should.equal(true);
+  });
   it('should return 403 status code', async () => {
     let res;
     let err;

@@ -18,10 +18,18 @@
 import * as bedrock from '@bedrock/core';
 import {asyncHandler, middleware} from '@bedrock/express';
 import path from 'node:path';
+import {servers} from '@bedrock/server';
 import '@bedrock/https-agent';
 
 const {acceptableContent} = middleware;
 const {util: {BedrockError}} = bedrock;
+
+// track the request objects node emits so tests can verify that express
+// handlers receive the same objects (node 26.11.0+ asserts on this identity)
+const nodeRequests = new WeakSet();
+bedrock.events.on('bedrock.ready', () => {
+  servers.https.prependListener('request', req => nodeRequests.add(req));
+});
 
 bedrock.events.on('bedrock-express.configure.static', () => {
   bedrock.config.express.static.push({
@@ -51,6 +59,13 @@ bedrock.events.on('bedrock-express.configure.static', () => {
 bedrock.events.on('bedrock-express.configure.routes', app => {
   app.get('/test', asyncHandler(async (req, res) => {
     res.json({success: true});
+  }));
+  // reports whether `req` and `res.req` are the request object node emitted
+  app.get('/request-identity', asyncHandler(async (req, res) => {
+    res.json({
+      isNodeRequest: nodeRequests.has(req),
+      isResponseRequest: res.req === req
+    });
   }));
   // echoes the route param and the raw request url so tests can verify that
   // encoded path params are preserved and that `req.url` is not decoded
