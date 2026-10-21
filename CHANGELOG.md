@@ -1,5 +1,14 @@
 # bedrock-express ChangeLog
 
+## 8.8.3 - 2026-10-xx
+
+### Changed
+- Update dependencies.
+  - `fastify@5.12.7`
+- Update peer dependencies.
+  - `@bedrock/server@5.2.1`
+- Update dev and test dependencies.
+
 ## 8.8.2 - 2026-10-21
 
 ### Fixed
