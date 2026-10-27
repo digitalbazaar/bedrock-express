@@ -1,5 +1,11 @@
 # bedrock-express ChangeLog
 
+## 8.8.4 - 2026-10-xx
+
+### Changed
+- Update dependencies.
+  - `body-parser@1.20.9`
+
 ## 8.8.3 - 2026-10-21
 
 ### Changed
